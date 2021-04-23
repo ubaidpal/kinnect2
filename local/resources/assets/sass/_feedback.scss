@@ -1,0 +1,247 @@
+/*	================================
+				feedback-left
+	================================  */
+
+.feedback-img {
+    position:fixed;
+    width:30px;
+    height:100px;
+    left:0px;
+    top:50px;
+	z-index:1;
+    cursor: pointer;
+    background-image:url(../images/svg/feedback_leaderboard.svg);
+	background-repeat:no-repeat;
+	background-position: left top;
+}
+.feedback-img.active {
+	background-position: left -100px;
+}
+
+.feedback-left {
+	width: 300px;
+	height: 250px;
+	color: #fff;
+	background-color: $grey-bg;
+	border-bottom-right-radius: 10px;
+	overflow: hidden;
+	position:fixed;
+    left:0px;
+	top:50px;
+	z-index:3;
+    margin-left: -300px;
+}
+.header-feedback {
+	padding: 0 15px;
+	line-height: 40px;
+	font-weight: bold;
+	background-color: $grey-dark;
+}
+.feedback-left textarea {
+	width: 260px;
+	height: 130px;
+	margin: 10px;
+	padding: 10px;
+	resize: none;
+	border: none;
+	outline: none;
+	color: #505050;
+	border-radius: 10px;
+	background-color: #fff;
+}
+.feedback-left textarea::-webkit-input-placeholder {
+   color: $text-grey-light;
+}
+.feedback-left textarea:-moz-placeholder { /* Firefox 18- */
+   color: $text-grey-light;  
+}
+.feedback-left textarea::-moz-placeholder {  /* Firefox 19+ */
+   color: $text-grey-light;  
+}
+.feedback-left textarea:-ms-input-placeholder {  
+   color: $text-grey-light;  
+}
+.feedback-left .btn {
+	width: 95px;
+	margin-right: 10px;
+	color: #fff;
+	background-color: #ee4b08;
+	border:none;
+}
+
+
+
+
+/*	================================
+				Leaderboard
+	================================  */
+
+.leaderboard-img {
+    position:fixed;
+    width:30px;
+    height:100px;
+    right:0px;
+    top:50px;
+	z-index:4;
+    cursor: pointer;
+    background-image:url(../images/svg/feedback_leaderboard.svg);
+	background-repeat:no-repeat;
+	background-position: left -200px;
+}
+.leaderboard-img.active {
+	background-position: left -300px;
+}
+
+.leaderboard {
+	width: 220px;
+	color: #fff;
+	background-color: $grey-bg;
+	border-bottom-left-radius: 10px;
+	overflow: hidden;
+	position: fixed;
+    right: 0px;
+    margin-right: -220px;
+	top:50px;
+	z-index:4;
+}
+
+.lb-tabs-wrapper {
+	width: 	200px;
+	margin: 0 auto;
+	overflow: hidden;
+	
+	.lb-tabs-menu{ overflow:hidden;}
+}
+
+.lb-btn {
+	position: relative;
+	display:block;
+	width: 95px;
+    line-height:2.15;
+	margin: 10px 0;
+    border-radius: 8px;
+    color: $grey-dark;
+    background-color: $text-white;
+	text-decoration:none;
+	text-align:center;
+	font-size:14px;
+	outline: none;
+	float: left;
+}
+.lb-btn-current {
+	color: $text-white;
+	background-color: $orange;
+}
+.lb-btn-current:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 42px;
+	bottom: -9px;
+	border: 5px solid;
+	border-color: $orange transparent transparent transparent;
+}
+
+.lb-content {
+	display: none;
+	li {
+		padding: 9px 0 10px 0;
+		overflow:hidden;
+		border-bottom: 1px solid $grey-light;
+
+		.total_skore{ float:right; color:$text-grey-dark;line-height: 10px; margin-top: -10px; font-size:12px;}
+		a.lb-content-img {
+			position: relative;
+			display: block;
+			width: 40px; 
+			height: 40px;
+			float: left;
+			
+			img {
+				position: absolute;
+				max-height:40px; max-width:40px;
+				border-radius: 50%;
+			}
+		}
+		a.kinnector-name {
+			color: $text-orange;
+			float: left;
+			font-weight: bold;
+			line-height: 18px;
+			padding: 1px 0 0 5px;
+			width: 150px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			
+			&:after{ content:''; clear:both;}
+		}
+		a.kinnector-name:hover {
+			text-decoration: underline;
+		}
+
+
+		a.kinnector-add {
+			font-size: 12px;
+			color: #505050;
+			float: left;
+			width: 86px;
+			line-height: 1.5;
+			text-align: center;
+			background-color: $white;
+			border-radius: 8px;
+			margin-top: -17px;
+			margin-left: 46px;
+			padding: 4px 0px;
+		}
+		a.kinnector-add:hover {
+			text-decoration: none;
+			background-color:$orange;
+			color:$text-white;
+		}
+	}
+	li:last-of-type {
+		border-bottom: none;
+		text-align:center;
+		line-height:normal;
+		a{ display:inline-block; text-align:center;background-color: #EE4B08; width: 100px;border-radius: 10px;color: #FFF;padding: 5px 10px;}
+	}
+}
+#lb-tab-kinector {
+	display: block;
+}
+#consumers_leaderboard, #brands_leaderboard{
+	
+	li{border-bottom:1px solid $grey-light; overflow:hidden; padding:10px;
+		p{float:right; margin-top:10px;}
+		a.kinnector-name {
+			color: #ee4b08;
+			float: left;
+			font-weight: bold;
+			line-height: 10px;
+			margin-top:15px;
+		}
+	
+	a.lb-content-img {
+		border-radius: 50%;
+		display: block;
+		float: left;
+		height: 40px;
+		overflow: hidden;
+		position: relative;
+		width: 40px;	
+		
+		}
+	.orngBtn{ line-height:normal; float:right; padding:5px 10px;}
+	
+	}		
+}
+
+
+
+
+
+
+
+

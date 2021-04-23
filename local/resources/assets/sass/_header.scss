@@ -1,0 +1,222 @@
+.header-main{ background-color:$grey-dark; height:30px;padding:5px 0px; position:fixed; top:0; width:100%; z-index:9; left:0;}
+.header-container{ width:1170px; margin:0 auto;
+	a.btn{float:right; min-width:100px;}
+}
+.logo{background-image:url(../images/svg/heade_icons/logo.svg); background-size:140px 30px; background-position:left center; background-repeat:no-repeat; width:140px; height:30px; display:inline-block; float:left; margin-top:-1px;}
+.header-main ul{float:right;}
+.header-main ul li{ float:left; color:#bbb;}
+.header-main ul li span.skore-digits{
+	
+	color: $text-white;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #000;
+		
+	} 
+
+.header-main input[type="text"]{
+    background-color:$serach-bgcolor;
+    border:1px solid $grey-dark;
+    color: $text-white;
+    font-size: 14px;
+	padding:4px 30px 7px 8px;
+	width:218px;
+}
+.header-main input:focus { color: $text-grey-light;}
+.header-main form{position:relative;}
+.header-main a.sIcon{ background-image:url(../images/svg/heade_icons/search.svg); background-repeat:no-repeat; background-position: center center; background-size:14px 14px; width:14px; height:14px; display:block; position:absolute; right:9px; top:8px;}
+
+ul li.header-menu {padding:6px 0px; line-height:normal;}
+ul li.header-menu a{ width:18px; height:18px; float:left; display:block; background-repeat:no-repeat; margin-right:20px;}
+ul li.header-menu a:hover{ cursor:pointer; opacity:0.5;}
+
+ul li.header-menu a{background-position: center center; background-repeat:no-repeat; background-size:18px 18px;}
+	
+ul li.header-menu a.dashboard{background-image:url(../images/svg/heade_icons/dashboard.svg);}
+ul li.header-menu a.inbox{background-image:url(../images/svg/heade_icons/inbox.svg); background-size: 18px 14px;}
+ul li.header-menu a.notifications{background-image:url(../images/svg/heade_icons/Notifications.svg); background-size: 14px 18px;}
+ul li.header-menu a.invite{background-image:url(../images/svg/heade_icons/InviteKinnectors.svg);}
+ul li.header-menu a.favourite{background-image:url(../images/svg/heade_icons/FavouriteFeeds.svg);}
+ul li.header-menu a.koins{background-image:url(../images/svg/heade_icons/Kinnect2Coins.svg);}
+ul li.header-menu a.cart{background-image:url(../images/svg/heade_icons/cart.svg);}
+
+ul li.header-menu a span{ 
+	background-color: #ff0000;
+    border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 11px;
+    left: 10px;
+    line-height: 10px;
+    min-height: 12px;
+    min-width: 12px;
+    padding: 2px 2px 0px;
+    position: relative;
+    text-align: center;
+    top: -10px;
+}
+ul li a.profile img{border-radius:50%; float:left; margin-top:1px; margin-right:10px; margin-left:1px;}
+
+ul li a.profile{background-image:url(../images/svg/arrow_down.svg); background-repeat:no-repeat; background-position:right center; background-size:7px 6px; padding:0 16px 0 0; color:$text-grey-light; font-size:$font-size-14px; display: inline-block; line-height:26px; min-width:140px; position:relative; z-index:2;
+}
+
+ul li.profile-tooltip{
+	background-color: $serach-bgcolor;
+    border-radius: 15px 10px 10px 15px;
+    margin-left: 10px;
+    padding: 2px 10px 2px 3px;
+	position:relative;
+	
+	&.admin{ background:none; 
+	
+		a.profile{ min-width:114px;}
+		#popUpText{ padding:0; margin:0 8px; border-radius:8px; top:30px;
+			a{padding: 10px 12px;}
+		}
+	}
+}
+
+#popUpText
+{
+    display: none;
+    position: absolute;
+    top: 18px;
+    right: 0px;  
+	border-radius:0 0 10px 10px;
+	width:100%;
+	background-color:$serach-bgcolor;
+	overflow:hidden;
+	width:100%;
+	padding-top:15px;
+	
+	a{ display:block; padding:10px 10px 10px 15px; font-size:13px; color:$text-grey-light; line-height:normal; border-bottom:1px solid $grey-light;
+		span{ background:$blue; color: $text-white; padding: 2px 5px; border-radius: 4px; float: right; margin-top:-2px;}
+	}
+	a:hover{ background-color:$text-orange; color:$text-white;} 
+	
+	& a:last-child{ border-bottom:none;}
+	
+	
+}
+#popUp{display:none; position:absolute; right:40px;}
+#popUp:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	bottom: -22px;
+	border: 5px solid;
+	border-color: transparent transparent $orange transparent;
+}
+
+div[role='dialog']{
+        display: none;
+}
+div.uiToggleDialog[role="dialog"]{
+        display: block;
+}
+.search-dropdown{
+	background-color: $text-white;
+    display: block;
+    line-height: normal;
+    overflow: hidden;
+    position: absolute;
+    width: 240px;
+	max-height:500px; overflow-y:auto;
+	border-radius: 0 0 10px 10px;
+	margin-left:11px;
+}
+.search-separator{
+    background-color: $grey-dark;
+    color: $text-white;
+    padding: 5px;
+}
+.search-dropdown-item{ 
+	display: block;
+    overflow: hidden;
+    padding: 5px;
+	
+	&:hover{background-color:#f0f0f0;}
+}
+
+.item-img{ border-radius:50%; overflow:hidden;
+	
+	img{display:block;}
+}
+.item-txt{color:$text-orange; padding:15px 0px 0 10px;}
+.search-dropdown-item:nth-of-type(even){ background:#e8e8e8;
+
+&:hover{background-color:#d3d3d3;}
+
+}
+.search-btn{padding:10px;}
+
+
+.pulldown_contents_wrapper {
+    background-color:#dcdcdc;
+	background-image:none !important;
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    top: 40px;
+	line-height:normal;
+	overflow:hidden;
+	max-width:445px;
+}
+
+.pulldown_options{ 
+	
+	background-color:$grey-dark; padding:10px; overflow:hidden;
+	
+	a{
+		background:$orange !important;
+		border-radius: 8px;
+		color: $text-white;
+		font-size: 14px;
+		height: auto !important;
+		line-height: 2;
+		padding: 0 10px;
+		text-align: center;
+		text-decoration: none;
+		width: auto !important;
+		opacity:1 !important;
+	}
+}
+.pulldown_options a:first-child{ margin-right:10px !important;}
+.pulldown_contents{ line-height: normal; overflow:hidden;
+	
+	ul{float:none;}
+}
+
+span.notification_item_general{overflow:hidden;
+	
+	a{
+		background-image: none !important;
+		color: #ee4b08;
+		display: inline-block !important;
+		float: none !important;
+		height: auto !important;
+		margin: 0 !important;
+		width: auto !important;
+		
+		&:hover{ opacity:1 !important; text-decoration:underline;}
+		
+	}
+}
+.notifications_unread, .notifications_read {
+    float: none !important;
+}
+.notifications_read {
+        background-color: $grey-bg;
+}
+ 
+div[role='dialog']{
+	display: none;
+}
+div.uiToggleDialog[role="dialog"]{
+	display: block;
+}
+
+.notifications_menu{
+		li{ padding:5px 10px; border-bottom:1px solid $grey-light;}	
+}
+

@@ -1,0 +1,189 @@
+/*
+	=Battle Container
+*/
+
+.battle-container {
+	overflow: hidden;
+	background-color: $grey-bg;
+}
+
+header.battle-header { padding:10px 0px;
+    .battle-title {
+        font-size: 16px;
+        margin: 5px 10px;
+		font-weight:bold;
+    }
+}
+
+.battle-vs-block {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    margin: 5px 10px;
+    .battle-vs-item {
+	    overflow: hidden;
+	    margin-bottom: 5px;
+	    text-align: center;
+	    flex: 1;
+	}
+
+    .battle-vs-img {
+        overflow: hidden;
+
+        &.lbradius {
+            margin-right: 1px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        &.rbradius {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        img {
+            height: 55px;
+        }
+    }
+    .battle-vs-title {
+
+        h3 {
+            font-size: 12px;
+            overflow: hidden;
+            margin: 5px 18px 5px 10px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            &.bvstxt {
+                margin: 5px 10px 5px 25px;
+            }
+        }
+    }
+    span.battle-circle-txt {
+        line-height: 50px;
+        color: $text-white;
+    }
+    &:after {
+	    line-height: 50px;
+	    position: absolute;
+	    z-index: 10;
+	    top: 27px;
+	    left: 50%;
+	    width: 50px;
+	    height: 50px;
+	    margin-left: -28px;
+	    content: 'Vs';
+	    text-align: center;
+	    color: $white;
+	    border: 2px solid $white;
+	    border-radius: 50%;
+	    background-color: $orange;
+	}
+}
+.battle-view {
+	margin: 20px 10px 0 10px;
+}
+.bv-radio {
+	display: flex;
+}
+.battle-radio-item {
+    display: flex;
+    flex-direction: column;
+
+    // align-items: center;
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+
+    h3 {
+    	overflow: hidden;
+    	white-space: nowrap;
+    	text-overflow: ellipsis;
+    	margin: 0 6px;
+    }
+}
+.battles-btn {
+    width: 70%;
+    margin: 20px auto 5px;
+}
+
+
+.divContainer {
+	width: 470px;
+	height: 470px;
+}
+.error-container{ 
+	bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 90%;
+	height:65%;
+	
+	.error_img{width:170px; margin:0 auto;
+		
+		img{ width:100%; height:100%;}	
+	}
+	h2{ font-size: 30px; font-weight: bold; margin-top: 25px;}
+	p{ font-size: 18px; margin-top: 10px;}
+}
+
+.threads{ }
+.usr-msg-item {
+    padding: 15px 10px ;
+    overflow: hidden;
+    line-height: 14px;
+    position: relative;
+	border-bottom:1px solid #c0c0c0;
+	
+	.usr-msg-timing {
+		color: #c0c0c0;
+		font-size: 12px;
+		position: absolute;
+		right: 10px;
+		top: 12px;
+	}
+	.usr-msg-block {
+		overflow: hidden;
+	}
+	.usr-msg-content{ min-height:55px;}
+	.usr-msg-img {
+		float: left;
+		margin-right: 10px;
+		width: 55px;
+		height: 55px;
+		border-radius: 50%;
+		overflow: hidden;
+		
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	.usr-msg-title {
+		color: #ee4b08;
+		font-weight: bold;
+		line-height: 22px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 58%;
+	}
+	 .usr-msg-txt {
+		color: #505050;
+		font-size: 13px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+.compose-msg{ padding:10px; border-bottom:1px solid #c0c0c0;}
+
+span.icon{ padding-left:34px; display:inline-block; line-height:22px;
+	&.create{ background:url(../images_mobile/create_message_icon.svg) left center no-repeat;}
+	&.searchIcon{ background:url(../images_mobile/search_2.svg) left center no-repeat;}
+}
+
+
+

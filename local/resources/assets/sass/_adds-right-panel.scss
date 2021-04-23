@@ -1,0 +1,154 @@
+.adPanel{float:right; width:170px; overflow:hidden; line-height:normal;}
+
+.dashboard_ads{position:fixed; top:145px;}
+.adsDiv{
+
+	.ads_box{ position: relative; padding-bottom:10px; min-height:218px;
+	
+		&:hover .report_ad{ 
+			background-image: url("../images/svg/report_ad.svg");
+			background-position: left center;
+			background-repeat: no-repeat;
+			background-size:100%;
+			display: block !important;
+			height: 16px;
+			position: absolute;
+			right: 0;
+			text-indent: -999px;
+			top: 2px;
+			width: 10px;
+			overflow:hidden;
+			
+			/*&:hover{background-position: right center;}*/
+		}
+	}
+	.cmadrem{ position:relative; font-size:12px;
+		
+		div.cmadrem_rl{ float:right; margin-left:5px; margin-right:2px;
+			a{ color:$text-orange;}	
+		}	
+		form{ padding-top:5px;
+			div{font-size: 12px; line-height: 13px;overflow: hidden; padding: 3px 0;
+			
+				input{ margin:0 0 0 1px; float:left;}
+				label{ padding-left:5px;}
+				textarea{box-sizing: border-box; color: $text-grey-dark; font-family: arial; font-size: 12px; padding:3px; min-width:170px; max-width:170px; min-height:50px; max-height:50px;
+					
+					&:focus{ border: 1px solid #ccc;}	
+				}
+			}
+			.orngBtn{ width:90px;}
+		}
+	}
+
+	img{border-style:none;}
+	.ad-clicked{ font-size:11px; color:$text-grey-dark; width:170px; font-weight:bold; display:block; padding-bottom:4px;
+		span{ color:$text-orange; font-size:11px; cursor:pointer; display:block; padding:0px; font-weight:normal;}	
+	}
+	p{ 
+		font-size: 11px;
+		padding-bottom: 12px;
+		width: 170px;
+		border-bottom: 1px solid #ccc;
+		word-wrap:break-word;
+	}
+}
+.adsDiv img{ margin:0px; display:block;border-style:none; border:none; width:170px; max-width:170px; height:140px; max-height:140px;}
+.homesorting {
+    background-color:$grey-bg;
+    border-radius:10px;
+    padding: 5px;
+	margin-bottom:10px;
+}
+.sorting_list_bg {
+    background: $text-white;
+    border-radius: 12px;
+    float: left;
+    margin-right: 5px;
+	width:95px;
+}
+.homesorting ul li:first-child a {
+	width:23px;
+	border-radius: 10px 0 0 10px;
+}
+.homesorting ul li:last-child{width:60px;}
+.homesorting ul li {
+    float: left;
+    font-size: 13px;
+    padding-right: 0;
+	line-height:17px;
+}
+.homesorting ul li a {
+    color:$text-grey-dark;
+    float: left;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 4px 6px 4px;
+	text-align:center;
+	border-radius: 0px 10px 10px 0px;
+	width:48px;
+}
+.sort_active_link a {
+    background: $orange;
+    color:$text-white !important;
+    padding: 3px 7px 5px;
+}
+.homesorting ul{overflow:hidden;}
+
+/*.homesorting ul li a:hover {
+    background: #ee4b08 none repeat scroll 0 0;
+    border-radius: 22px;
+}*/
+.homesorting ul li a:active {
+   background:$orange;
+	color:$text-white;
+}
+#my_selection {
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+}
+
+.homesorting select {
+    background:$white url(../images/svg/arrow_down.svg) 90% center no-repeat;
+    border: 0 none;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 3px 10px 3px 6px;
+    width: 60px;
+	height:25px;
+	color:$text-grey-dark;
+	float:right;
+ 	-webkit-appearance: none;
+   	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+.adPanel .head{ 
+	background: $orange;
+    border-radius: 10px;
+    padding: 5px 0;
+    width: 170px;
+	overflow:hidden;
+}
+
+.head a {
+	border-right: 1px solid $text-white;
+    float: left;
+    padding-left: 9px;
+    padding-right: 8px;
+    color: $text-white;
+    font-size: 13px;
+	line-height: 20px;
+}
+.head a:last-child{ border-right:none;}
+.bandsNadds{
+	background-color:$text-white;
+    display: block;
+    position: fixed;
+    top: 40px;
+    z-index: 1;
+	padding-bottom:10px;
+	padding-top:10px;
+}

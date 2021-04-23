@@ -1,0 +1,96 @@
+.adPanel{float:right; width:170px; overflow:hidden;}
+.adsDiv{position:absolute; top:160px;}
+.adsDiv img{ margin-bottom:15px; display:block;}
+.adsDiv img:last-child{ margin-bottom:10px;} 
+.homesorting {
+    background-color:$grey-bg;
+    border-radius:10px;
+    padding: 5px;
+	margin-bottom:10px;
+}
+.sorting_list_bg {
+    background: $text-white;
+    border-radius: 12px;
+    float: left;
+    margin-right: 5px;
+	width:95px;
+}
+.homesorting ul li:first-child a {
+	width:23px;
+	border-radius: 10px 0 0 10px;
+}
+.homesorting ul li:last-child{width:60px;}
+.homesorting ul li {
+    float: left;
+    font-size: 13px;
+    padding-right: 0;
+	line-height:17px;
+}
+.homesorting ul li a {
+    color:$text-grey-dark;
+    float: left;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 4px 6px 4px;
+	text-align:center;
+	border-radius: 0px 10px 10px 0px;
+	width:48px;
+}
+.sort_active_link a {
+    background: $orange;
+    color:$text-white !important;
+    padding: 3px 7px 5px;
+}
+.homesorting ul{overflow:hidden;}
+
+/*.homesorting ul li a:hover {
+    background: #ee4b08 none repeat scroll 0 0;
+    border-radius: 22px;
+}*/
+.homesorting ul li a:active {
+   background:$orange;
+	color:$text-white;
+}
+#my_selection {
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+}
+
+.homesorting select {
+    background: $text-white url(../images/header/profile-tip.png) no-repeat scroll 90% center;
+    border: 0 none;
+    border-radius: 15px;
+    font-size: 13px;
+    padding: 3px 16px 3px 4px;
+    width: 60px;
+	color:$text-grey-dark;
+	font-size: 13px;
+	float:right;
+}
+.adPanel .head{ 
+	background: $orange;
+    border-radius: 10px;
+    padding: 5px 0;
+    width: 170px;
+	overflow:hidden;
+}
+
+.head a {
+	border-right: 1px solid $text-white;
+    float: left;
+    padding-left: 9px;
+    padding-right: 8px;
+    color: $text-white;
+    font-size: 13px;
+	line-height: 20px;
+}
+.bandsNadds{
+	background-color:$text-white;
+    display: block;
+    position: fixed;
+    top: 60px;
+    z-index: 3;
+	padding-bottom:15px;
+	padding-top:10px;
+}

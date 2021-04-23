@@ -1,0 +1,28 @@
+
+    <%
+        if(typeof newUpload == 'undefined'){
+    %>
+            <div class="delete delete-upload">
+                <a></a>
+            </div>
+    <%
+        }
+    %>
+    <%
+        if(typeof path != 'undefined'){
+    %>
+            <img style="width:60px; height:70px" src="<%- path %>"/>
+    <%
+        }else if(typeof newUpload != 'undefined'){
+    %>
+        <div class="upload-more"><div class="more"></div></div>
+    <%
+        }
+    %>
+    <% if(!status && typeof newUpload == 'undefined' && typeof progress_id != 'undefined'){ %>
+    <progress max="100" value="0" style="width: 100%" id="<%-progress_id%>" class="progress-bar"></progress>
+    <% } %>
+
+
+
+

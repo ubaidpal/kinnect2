@@ -1,0 +1,91 @@
+<!-- Post Div-->
+<div class="new-post-container" id="write-your-post">
+
+    <form >
+
+    </form>
+
+
+
+    <form action="" class="form-container" id="postForm" method="post" enctype="multipart/form-data">
+        <textarea type="text" class="disable-required" placeholder="What would you like to post?" alt="" maxlength="" size="60" id="k2post" name="text" autocomplete="on"></textarea>
+
+        <input type="file" style="position: fixed; top: -30px;" name="video" id="postFiles"  />
+        <input class="disable-required" type="submit" style="display: none" id="savePostBtn">
+        <!--<input type="file" style="position: fixed; top: -30px;" name="photos" id="postFiles" accept="image/*,video/*,audio/*" multiple />-->
+        <button type="submit" id="btn" style="width: 0px;height: 0px; display: none;">Upload Files!</button>
+    </form>
+
+
+    <div id="links-preview">
+
+
+    </div>
+
+    <div id="postUploadingFiles">
+
+    </div>
+    <progress value="0" max="100" style="width: 100%;display: none;" id="progress_bar"></progress>
+    <div id="status-loader" style="margin: 8px; margin-top: 5px; margin-bottom: 15px;display: none;"><img src="local/public/images/loading.gif"></div>
+
+    <div class="adpost-btn">
+        <a href="javascript:void(0);" class="btn btn-upload" title="Upload" id="status-file-upload">Upload</a>
+        <a href="javascript:void(0);" class="btn btn-upload fR" title="Share" id="share-btn">Share</a>
+    </div>
+
+</div>
+
+<div class="post-container" id="post_container">
+
+</div>
+
+
+<a href="#" id="socialShareTrigger"></a>
+
+<input type="hidden" id="postIDentifier">
+<input type="hidden" id="ObjectType">
+<input type="hidden" id="objectIdentifier">
+
+<div class="modal-box" id="reShare_popup" style="display:none;">
+    <a href="#" class="js-modal-close close">×</a>
+
+    <div class="modal-body">
+        <div class="edit-photo-poup" style="overflow: auto">
+            <h3>Share</h3>
+
+            <div class="wall-photos" style="overflow: auto">
+                <div class="">
+                    <div class="form-container">
+                        <div>
+                            <label for=""></label>
+                            <textarea name="text" rows="8" cols="60" id="share_text" placeholder="Write your text here..."></textarea>
+                        </div>
+                        <div class="clrfix"></div>
+                        <div class="saveArea mt10">
+                            <button class="orngBtn fltL share-activity-btn" type="button">Share</button>
+                            <input class="orngBtn js-modal-close close" type="button"
+                                   value="Cancel"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="more-stories"  style="position: fixed; display: none;
+     top: 60px;
+     left: 48%;
+     cursor: pointer;
+     border-radius: 10px;
+     height: 28px;
+     width: 140px;
+     border: 1px solid #BDBDBD;
+     opacity: .8;
+     text-align: center;
+     padding-top: 10px;
+     background: -moz-linear-gradient(top, rgba(170,170,170,0.65) 0%, rgba(0,0,0,0) 100%);
+     background: -webkit-linear-gradient(top, rgba(170,170,170,0.65) 0%,rgba(0,0,0,0) 100%);
+     background: linear-gradient(to bottom, rgba(170,170,170,0.65) 0%,rgba(0,0,0,0) 100%);
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6aaaaaa', endColorstr='#00000000',GradientType=0 );">New Stories</div>

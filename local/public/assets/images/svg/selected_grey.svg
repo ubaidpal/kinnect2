@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" baseProfile="full"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:ev="http://www.w3.org/2001/xml-events" 
+  height="14px" 
+  width="14px" 
+>
+<path fill="rgb( 192, 192, 192 )"
+ d="M7,0 C10.866,0 14,3.134 14,7 C14,10.866 10.866,14 7,14 C3.13400000000001,14 0,10.866 0,7 C0,3.134 3.13400000000001,0 7,0 Z "/>
+</svg>

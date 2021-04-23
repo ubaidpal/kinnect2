@@ -1,0 +1,132 @@
+/*
+    SignIn - SignUp
+*/
+.signin {
+    .header-container {
+        width: 100%;
+        background-color: $grey-dark;
+        
+        .logo-block {
+            padding: 10px 0;
+            width: 40%;
+            margin: auto;
+
+            .k2-logo {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+            u {
+                left: -999999px;
+                position: absolute;
+            }
+        }
+    }
+
+    .signin-txt {
+
+        h2 {
+            margin: 20px 0;
+            line-height: 60px;
+            font-size: 30px;
+            color: $text-orange;
+			text-align:center;
+        }
+    }
+
+    .form-container {
+        padding: 0 20px;
+
+        .form-block {
+
+            span.email-icon {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                left: 5px;
+                top: 12px;
+                background: url(../images_mobile/email.svg) no-repeat center;
+                background-size: contain;
+            }
+			span.password-icon {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                left: 5px;
+                top: 12px;
+                background: url(../images_mobile/password_signin.svg) no-repeat center;
+                background-size: contain;
+            }
+            .p-icon {
+                padding-left: 32px;
+            }
+        }
+    }
+
+    .frgt-pass { text-align:right;
+
+        a {
+            color: $text-orange;
+            text-decoration: underline;
+			margin-right:20px;
+        }
+    }
+
+    .btn-signin {
+        width: 100%;
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+
+    .sign-terms-privacy {
+        margin-top: auto;
+        margin-bottom: 20px;
+		text-align:center;
+    }
+    
+    .pass-req {
+        margin-top: 5px;
+        margin-bottom: 15px;
+
+        span {
+            padding-left: 5px;
+        }
+    }
+
+    .btn-signup-container {
+        width: 100%;
+        padding: 0 20px;
+
+        .btn {
+            width: 49%;
+
+        }
+    }
+form{ width:100%;}
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+
+    <div class="comment-img">
+        <a class="comnt-imgc" href="<%-poster_href%>">
+            <img src="<%-userPhoto %>" alt="img">
+        </a>
+    </div>
+    <div class="comment-txt">
+        <div class="cmnt-title">
+            <a href="javascript:void(0)"><%- poster_name %></a>
+        </div>
+        <div class="cmnt-text">
+            <p>
+                <%- body %>
+            </p>
+        </div>
+        <div class="comment-footer">
+            <div class="comment-time">
+                <span><%- formatted_created_date %></span>
+            </div>
+
+            <% if($("#profileLink").data("socket") && (poster_id == $("#profileLink").data("socket"))) { %>
+                <div class="comment-btn">
+                    <a href="javascript:void(0)">Delete</a>
+                </div>
+            <% } %>
+
+
+            <% if(comment_liked) { %>
+                <div class="comment-btn">
+                    <a href="javascript:void(0)" class="like-comment active">Unlike</a>
+                </div>
+            <% }else{ %>
+                <div class="comment-btn">
+                    <a href="javascript:void(0)" class="like-comment not-active">Like</a>
+                </div>
+            <% }%>
+
+        </div>
+    </div>
+
+

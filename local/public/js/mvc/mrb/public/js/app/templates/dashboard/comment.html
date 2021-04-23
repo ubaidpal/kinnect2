@@ -1,0 +1,50 @@
+<div class="comment-pnl">
+
+    <div class="comment-content">
+        <a href="<%-poster_href%>" title="username" class="user-image"><img src="<%-userPhoto %>" width="45" height="45" alt="" title="user" /></a>
+        <div class="comment-text">
+        <a class="commentor-name" href="<%- poster_href %>"><%- poster_name %></a>
+        <% if(typeof attachment_path != 'undefined'){ %>
+        <div class="mb5 mt5">
+            <img src="<%-attachment_path%>">
+        </div>
+        <% } %>
+        <p><%= body %></p>
+        <% if(typeof link != 'undefined'){ %>
+        <div>
+            <div>
+                <a target="_blank" class="" href="<%-link.object_uri%>"><%-link.object_name%></a>
+            </div>
+            <div class="mb5 mt5">
+                <a target="_blank" class="mt5 mb5" href="<%-link.object_uri%>"><img src="<%-link.object_photo_path%>" width="100"></a>
+            </div>
+            <p><%-link.object_description%></p>
+        </div>
+        <% } %>
+        <% if($("#profileLink").data("socket") && (poster_id == $("#profileLink").data("socket"))) { %>
+            <span class="delete-comment" title="Delete comment"></span>
+        <% } %>
+
+        <% if(isAuthenticatedUser){ %>
+            <span class="like like-comment <%- comment_like_cls %>"><a></a> &ndash; <%- like_count %> Like this</span>
+            <% if(typeof isReply === 'undefined' || !isReply){ %>
+                <span>&nbsp;<a class="comment-threaded comment-threaded-<%-comment_id%>" href="#"><% if(reply_count){ %><%-reply_count%> <% } %> <% if(reply_count > 1) { %>Replies <% }else{ %>Reply<% } %></a></span>
+            <% } %>
+            <span class="date"><%- formatted_created_date %></span>
+        <% } %>
+    </div>
+    </div>
+
+    <div class="comment-replies"></div>
+    <div class="nested-reply-comment">
+
+        <% if(typeof isReply === 'undefined' || !isReply){ %>
+            <textarea placeholder="Write a reply" style="display: none;" class="wrtite-comment-threaded wrtite-comment-threaded-<%-comment_id%> disable-required"></textarea>
+        <% } %>
+
+    </div>
+</div>
+
+<div>
+
+</div>

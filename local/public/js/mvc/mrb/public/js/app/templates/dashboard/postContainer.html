@@ -1,0 +1,509 @@
+<% var post_type_cls = (is_group_post) ? "post_group" : "post_timeline" %>
+<div>
+    <div class="<%-post_type_cls%>">
+        <div class="user-name-pic">
+            <a href="<%-base_url%>/profile/<%-subject_href%>">
+                <img src="<%- userPhoto %>" width="55" height="55" alt="User Name"/>
+            </a>
+            <div>
+                <div class="post-header-one">
+                    <a href="<%-base_url%>/profile/<%-subject_href%>"><%- subject_name %></a>
+                    <% if(post_type == 'share'){ %>
+                        <% if(subject_owner_href == 'owner_self'){ %>
+                        <span class="status_string"><%-post_header%>&nbsp;<%-subject_owner_name%>
+                        <% }else{ %>
+                        <span class="status_string"><%-post_header%>&nbsp;<a href="<%-base_url%>/profile/<%-subject_owner_href%>" class="owner_name"><%- subject_owner_name %></a>&apos;s </span>
+                        <% } %>
+                        <a href="<%-base_url%>/view/<%-object_type%>/<%-object_id%>" class="status"><%-object_display_name%></a>
+                    <% }else{ %>
+                    <span class="status_string"><%-post_header%></span>
+                    <%-object_display_name%>
+                    <% } %>
+                    <% if(is_group_post && typeof group.id != 'undefined'){ %>
+                        <%-post_header_group_prefix%> <a href="/group/<%-group.id%>" class="group_name"><%- group.name %></a>
+                    <% } %>
+
+                    <% if(typeof is_album_photo != 'undefined'){ %>
+                    in album <a href="<%-base_url%>/albums/photos/<%-album_id%>"><%-album_title%></a>
+                    <% } %>
+
+                </div>
+                <em title=""><%- formatted_created_date %></em>
+            </div>
+
+            <% if(object_type == 'product' && !is_object_owner){ %>
+                <a class="btn-buynow" href="<%-base_url%>/product/<%-object_id%>">Buy Now</a>
+            <% } %>
+
+            <span style="cursor: pointer; float: right" class="closePopup"></span>
+            <% if(is_owner){ %>
+                <span style="cursor: pointer; float: right" class="delete-post">Delete</span>
+            <% } %>
+            <% modified_post_type = object_type + '_create'; %>
+        <% if(is_owner && is_object_owner && post_type != 'profile_update_photo' && post_type != 'cover_photo_update' && post_type != modified_post_type){%>
+            <a href="#" class="fltR mr5 edit-post">Edit</a>
+            <% } %>
+
+        </div>
+        <div class="posted-text" dir="auto">
+
+            <% if(post_type == 'friends'){ %>
+                <div>
+                    <a href="profile/<%- object_href%>"><%-object_name%></a> <%-modified_post_body%> <a href="profile/<%- subject_href%>"><%-subject_name%></a>
+                </div>
+            <% }else if(post_type == 'follow'){ %>
+            <div>
+                <a href="profile/<%- subject_name%>"><%-subject_name%></a> is now following <a href="profile/<%- object_href%>"><%-object_name%></a>
+            </div>
+            <% }else if(post_type == 'share'){%>
+            <div>
+                <%= post_body %>
+            </div>
+                <% if(post_owner_body != ''){ %>
+                <div class="re_share_container">
+                    <%= post_owner_body %>
+                </div>
+                <% } %>
+            <% }else{%>
+            <!--<%=post_body%>-->
+            <%=post_body.replace(/#(\w+)/g, function(match,p1){
+                var href = base_url+"?hashTag="+p1;
+                return "<a class='hashtag' href='"+href+"'>"+match+"</a>";})
+            %>
+            <% } %>
+        </div>
+        <div class="media object_<%-object_type%>">
+            <% if(object_type == 'link') {%>
+
+                <div class="links-preview <%- link_type%>"><div>
+                    <% if(typeof link_vid != 'undefined' && link_type == "youtube"){ %>
+
+                        <iframe style="border: none" allowfullscreen="allowfullscreen" width="688" height="386"
+                                src="https://www.youtube.com/embed/<%-link_vid%>">
+                        </iframe>
+
+                    <% }else if(typeof link_vid != 'undefined' && link_type == "vimeo"){ %>
+
+                        <iframe  width="688" height="386" src="//player.vimeo.com/video/<%-link_vid%>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                    <% }else{ %>
+                        <div class="link-images">
+                            <% if(typeof object_photo_path != 'undefined') {%>
+                                <a target="_blank" href="<%-object_uri%>">
+                                    <img src="<%- object_photo_path %>" width="100%" height="auto">
+                                </a>
+                            <% } %>
+                        </div>
+                    <% } %>
+                    <div class="link-content">
+                        <% if(typeof object_name != 'undefined') {%>
+                            <div class="title"><a target="_blank" href="<%-object_uri%>"><%- object_name %></a></div>
+                        <% } %>
+
+                        <% if(typeof object_description != 'undefined') {%>
+                            <div class="desc"><%- object_description %></div>
+                        <% } %>
+
+                    </div>
+                    <div class="clrfix"></div>
+                </div>
+                </div>
+
+            <% }else if(object_type == 'video') {%>
+                <div class="flowplayer-<%-post_id%>">
+                    <video width="680" height="383" <% if(object_photo_path){ %> poster="<%-object_photo_path%>" <% } %> preload="none" controls>
+                        <source type="video/mp4" src="<%- object_path %>">
+                    </video>
+                </div>
+
+            <% }else if(object_type == "album_photo") {%>
+                <div class="album-photo">
+
+                    <% if(object_photo_path.length == 1){ %>
+                    <div class="photo-one"><img class="light-box-item" data-index="0" src="<%- object_photo_path[0] %>"></div>
+                    <% }else if(object_photo_path.length == 2){
+                        $.each(object_photo_path, function(index,value){ %>
+                    <div class="photo-two-vertical">
+                        <img class="light-box-item" data-index="<%-index%>" src="<%- this %>">
+                    </div>
+                        <% })
+                    }else if(object_photo_path.length == 3){
+                        $.each(object_photo_path, function(index,element){
+
+                        if (index == 0){
+                           style = "height: 450px;overflow: hidden;width: 382px;";
+                            width = 382;
+                            height = 450;
+                        }else if(index == 1){
+                            style = "height: 223px; margin-right: 0;overflow: hidden;width: 303px;";
+                            width = 303;
+                            height = 223;
+                        }else{
+                            style = "bottom: 0; height: 224px;margin-right: 0;overflow: hidden;position: absolute;right: 0;width: 303px;";
+                            width = 303;
+                            height = 224;
+
+                        }
+                    %>
+
+                    <div class="photo-three" style="<%-style%>">
+                        <img width="<%-width%>" data-index="<%-index%>" height="<%-height%>" class="light-box-item" src="<%- this %>">
+                    </div>
+                        <% })
+                    }else if(object_photo_path.length == 4) {
+                        $.each(object_photo_path, function(index,elem){
+                            if(index == 0 || index == 2){
+                                mr = 3;
+                            }else{
+                                mr = 0;
+                            }
+                            mb = 0;
+                            if(index == 0 || index == 1){
+                                mb = 3;
+                            }
+                    %>
+                    <div class="photo-four" style="height: 223px; margin-right: <%-mr%>px; margin-bottom: <%-mb%>px; overflow: hidden;width: 340px;">
+                        <img width="340" height="223" data-index="<%-index%>" class="light-box-item" style="" src="<%- this %>">
+                    </div>
+                    <% })
+                    }else if(object_photo_path.length > 4){
+                        $.each(object_photo_path, function(index,elem){
+                            if(index <= 4){
+                                if (index == 0 || index == 1){
+                                    width = 340;
+                                    height = 250;
+                                }else{
+                                    width = 225.4;
+                                    height = 197;
+
+                                }
+                    %>
+                    <div class="photo-fiv">
+                        <% if(index == 4 && object_photo_path.length > 5){%>
+                        <div class="more-photos"><div class="photo-counter"><div class="light-box-item">+<%-(object_photo_path.length - 5)%></div></div></div>
+                        <% } %>
+                        <img width="<%-width%>" data-index="<%-index%>" height="<%-height%>" class="light-box-item" style="" src="<%- this %>">
+                    </div>
+                                <% } %>
+                        <% })  %>
+                   <% } %>
+                </div>
+	        <% }else if(object_type == 'cover_photo') {%>
+		        <div class="album-photo">
+                    <div class="single-item-album">
+                        <img class="album-photo-item album-one-item album-photo-item one" src="<%- object_photo_path[0] %>">
+                    </div>
+		        </div>
+            <% }else if(object_type == 'audio') {%>
+
+
+                <div id="jquery_jplayer_<%-post_id%>" class="jp-jplayer audio-post"></div>
+                <div id="jp_container_<%-post_id%>" class="jp-audio" role="application" aria-label="media player">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <div class="jp-controls">
+                                <button class="jp-play" role="button" tabindex="0">play</button>
+                                <button class="jp-stop" role="button" tabindex="0">stop</button>
+                            </div>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                            <div class="jp-volume-controls">
+                                <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                <div class="jp-volume-bar">
+                                    <div class="jp-volume-bar-value"></div>
+                                </div>
+                            </div>
+                            <div class="jp-time-holder">
+                                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                                <div class="jp-toggles">
+                                    <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-no-solution">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
+                    </div>
+                </div>
+
+            <% }else if(object_type == 'battle' && typeof object_option_0 != 'undefined' && typeof object_option_1 != 'undefined'){ %>
+                <div class="battle-detail">
+                    <div class="battle-title cf"><%-object_name%></div>
+                    <div><%-object_description%></div>
+                    <div class="battle-brand">
+                        <form action="">
+                            <div class="battle-brand fltL">
+
+                                <div class="brand-img brand-img-lft">
+                                    <% if(object_option_0.photo_path){%>
+                                    <img src="<%-object_option_0.photo_path%>" alt="image">
+                                    <% } %>
+                                </div>
+
+                                <div class="brand-name brand-name-lft"><%-object_option_0.brand_name%></div>
+                                <%if(is_object_owner < 1 && object_option_0.is_voted < 1 && object_is_closed < 1){%>
+                                <div class="battle-brand-radio cf">
+                                    <label class="battle-radio-btn">
+                                        <input type="radio" class="battle-voting" name="vote" value="<%-object_option_0.option_id%>">
+                                        <i></i>
+                                        <div class="battle-radio-txt"><%-object_option_0.brand_name%></div>
+                                    </label>
+                                </div>
+                                <%}else{%>
+                                <div class="battle-brand-radio cf">
+                                    <label class="battle-radio-btn"></label>
+                                </div>
+                                <div class="battle-brand-votes">
+                                    <div class="battle-txt-vote fltL">Votes:</div>
+                                    <div class="battle-vote-value fltR"><%-object_option_0.vote_count%> <span>(<%-object_option_0.vote_percentage%>%)</span></div>
+                                    <div class="battle-vote-bar">
+                                        <span class="color-1" style="width: <%-object_option_0.vote_percentage%>%"></span>
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+
+
+                            <div class="battle-brand fltR">
+
+                                <div class="brand-img brand-img-rght">
+                                    <% if(object_option_1.photo_path){%>
+                                    <img src="<%-object_option_1.photo_path%>" alt="image">
+                                    <%}%>
+                                </div>
+
+                                <div class="brand-name brand-name-rght"><%-object_option_1.brand_name%></div>
+                                <%if(is_object_owner < 1 && object_option_1.is_voted < 1 && object_is_closed < 1){%>
+                                <div class="battle-brand-radio cf">
+                                    <label class="battle-radio-btn">
+                                        <input type="radio" class="battle-voting" name="vote" value="<%-object_option_1.option_id%>">
+                                        <i></i>
+                                        <div class="battle-radio-txt"><%-object_option_1.brand_name%></div>
+                                    </label>
+                                </div>
+                                <%}else{%>
+                                <div class="battle-brand-radio cf">
+                                    <label class="battle-radio-btn"></label>
+                                </div>
+                                <div class="battle-brand-votes fltR">
+                                    <div class="battle-txt-vote fltL">Votes:</div>
+                                    <div class="battle-vote-value fltR"><%-object_option_1.vote_count%> <span>(<%-object_option_1.vote_percentage%>%)</span></div>
+                                    <div class="battle-vote-bar">
+
+                                        <span class="color-2" style="width: <%-object_option_1.vote_percentage%>%"></span>
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+                            <div class="battle-vs">Vs</div>
+                        </form>
+                    </div>
+            </div>
+            <% }else if(object_type == 'poll'){ %>
+                <div class="battle-detail">
+                    <div class="polls-detail">
+
+                        <div class="polls-detail-text">
+                            <%-object_name%>
+                            <p><%-object_description%></p>
+                        </div>
+
+                        <ul>
+                            <%
+                            if(object_options.length > 0){
+                                if(object_is_voted < 1 && is_object_owner < 1 && object_is_closed < 1){
+                                    $.each(object_options,function(element,index){
+                            %>
+                            <div class="poll-vote-box">                                
+                                <div class="polls-progress-bar">
+                                    <input type="radio" name="poll" class="poll-voting" value="<%-this.id%>">
+                                    <div class="poll-brand-img">
+                                        <img src="<%-this.photo_path%>" width="54" height="54">
+                                    </div>
+                                    <label for="13"><%-this.poll_option%></label>
+                                </div>
+                            </div>
+                            <%
+                                    })
+                                }else{
+                                    $.each(object_options,function(index,element){
+                            %>
+                            <div class="poll-vote-box">
+                                <div class="poll-brand-img">
+                                    <img src="<%-this.photo_path%>" width="54" height="54">
+                                </div>
+                                <div class="polls-progress-bar">
+                                    <div class="polls-vote-name fltL"><%-this.poll_option%></div>
+                                    <div class="polls-vote-value fltR">Votes: <%-this.votes%> (<%-this.vote_percentage%>%)</div>
+
+                                    <div class="progress-bar">
+                                        <span class="green color-<%-(index+1)%>" style="width: <%-this.vote_percentage%>%"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <%
+                                    })
+                                }
+                            }
+                            %>
+                        </ul>
+                    </div>
+                    <p>Total number of votes: <%-object_vote_count%></p>
+                </div>
+            <% }else if(object_type == 'group'){ %>
+            <div class="event_container">
+                <div class="event_thumbnail"><img src="<%-object_photo_path%>" width="100" height="100" /></div>
+                <div class="event_detail">
+                    <a href="<%-base_url%>/group/<%-object_id%>"><%-object_name%></a>
+                    <p><%-object_description%></p>
+                </div>
+            </div>
+            <% }else if(object_type == "event"){ %>
+            <div class="event_container">
+            	<div class="event_thumbnail"><img src="<%-object_photo_path%>" width="100" height="100" /></div>
+                <div class="event_detail">
+                	<a href="<%-base_url%>/event/<%-object_id%>"><%-object_name%></a>
+                	<p><%-object_description%></p>
+                </div>
+            </div>
+            <% }else if(object_type == 'product'){ %>
+                <div class="pap-content">
+                    <div class="slider-wrapper">
+                        <div class="pap-img">
+                            <% $.each(object_photos, function(ind, val){%>
+                            <img class="slid" src="<%- val.object_photo_path %>">
+                            <% }) %>
+                        </div>
+
+                        <div class="slid-thumbs <%-post_id%>-<%-object_id%>-thumbs">
+                            <% $.each(object_photos, function(ind, val){%>
+                            <a data-slide-index="<%-ind%>" href=""><img class="slid-thumb" src="<%- val.object_photo_path %>"></a>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <div class="pap-detail">
+                        <div class="pap-dtitle">
+                            <h1 class="product-title"><%- object_title %></h1>
+                            <div class="pap-dreview">
+                                <% if(product_rating_count > 0){ ratingStarCls = ""%>
+                                <div class="pap-dreview">
+                                    <div class="pap-dreview-img">
+                                        <% for(i = 0; i < 5; i++){
+                                        var ratingStarCls = "";
+
+                                        var nextCount = i+1;
+                                        if(product_rating > i &&  product_rating < nextCount ){
+                                        ratingStarCls = "half";
+                                        }else if(product_rating > nextCount ||  product_rating == nextCount ){
+                                        ratingStarCls = "full";
+                                        }
+
+                                        %>
+
+                                        <a class="pap-dreview-itm <%-ratingStarCls%>" href="javascript: void (0);"> </a>
+
+                                        <% } %>
+                                    </div>
+                                    <span class="pap-dreview-review">(<%-product_rating_count%> Reviews)</span>
+                                </div>
+                                <% } %>
+                            </div>
+                            <div class="pap-title-label">
+                                <span>$<%- object_discount_price %></span>
+                                <% if(object_discount_price < object_price){ %>
+                                <span style="text-decoration: line-through;">$<%- object_price %></span>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="pap-txt">
+                            <% if(object_description.length > 280){ %>
+                            <%= object_description.substring(0,280) %>...
+                            <% }else{ %>
+                            <%=object_description %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }%>
+        </div>
+
+        <% if(isAuthenticatedUser){ %>
+        <div class="feed-options">
+            <a href="javascript:void(0);" title="Like" class="like like-post <%- like_cls %>"></a>
+            <a href="javascript:void(0);" title="Dislike" class="dislike dislike-post <%- dislike_cls %>"></a>
+            <a href="javascript:void(0);" title="Favourite" class="favourite favourite-post <%- fav_cls %>"></a>
+            <a href="javascript:void(0);" data-id="reShare" title="Share" class="share share-post-kinnct"></a>
+            <a href="javascript:void(0);" title="Social" class="social-link social-share-post"></a>
+            <% if(!is_object_owner){%>
+                <a href="javascript:void(0);" data-id="flag" title="Flag" class="flag flag-post <%-flag_cls%>"></a>
+            <% } %>
+
+            <% if(object_type == 'video'){ %>
+                <a download="" href="<%- object_path %>" class="download download-video" title="Download Video">Download Video</a>
+            <% } %>
+        </div>
+        <% if(likes.friends.length > 0 || likes.others.length > 0){ %>
+        <div class="otherLikes">
+                <a href="#" class="post-likes">
+                <%
+                if(likes.friends.length > 0) {
+                    $.each(likes.friends, function(index,element){
+
+                %>
+                <% if(index != 0 ){ %>&sbquo;<% } %><%- this.name %>
+                <%
+                    });
+                }
+                if(likes.friends.length > 0 && likes.others > 0){
+
+                %>
+                and <%- likes.others %> others
+                <% }else if(likes.friends.length < 1 && likes.others > 0){ %>
+
+                <%- likes.others %>
+
+                    <% if(likes.others == 1){ %>
+                    Kinnector
+                    <% }else{ %>
+                    Kinnectors
+                    <% } %>
+
+                <% } %>
+                <% if(likes.friends.length > 0 || likes.others >0 ){ %>
+                like this.
+                 <% } %>
+                </a>
+        </div>
+        <% } %>
+        <% } %>
+        <div class="post-write-comment">
+
+            <div class="options-detail">
+                <span class="likes-count">
+                    <% if(post_like_count > 0){ %>
+                    <a href="#" class="post-likes"> <%- post_like_count %> Likes </a>
+                    <% }else{ %>
+                    <%- post_like_count %> Likes
+                    <% } %>
+                </span> |
+                <span class="dislikes-count">
+                    <%if(post_dislike_count > 0){%>
+                    <a href="#" class="post-dislikes"> <%- post_dislike_count %> Dislikes </a>
+                    <% }else{ %>
+                    <%- post_dislike_count %> Dislikes
+                    <% } %>
+                </span> |
+                <span class="comments-count"> <%- post_comment_count %> Comments </span> |
+                <span class="shares-count"> <%- post_share_count %> Shares </span>
+            </div>
+
+        </div>
+    </div>
+</div>

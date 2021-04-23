@@ -1,0 +1,167 @@
+/*
+    Navbar Mobile
+*/
+.nav-container {
+    display: flex;
+    width: 100%;
+    background-color: $grey-dark;
+    align-items: center;
+	flex-direction:row;
+    .icon-item {
+        flex: 1;
+    }
+    .img-icm {
+        position: relative;
+        width: 35px;
+        height: 44px;
+        margin: 0 auto;
+        background-image: url(../images_mobile/nav_icons-1.svg);
+        background-repeat: no-repeat;
+
+        &.setng {
+            background-position: -13px -8px;
+
+            &.active {
+				background-position: -79px -8px;
+            }
+        }
+
+        &.dshbrd {
+            background-position: -144px -8px;
+
+            &.active {
+				background-position: -210px -8px;
+            }
+        }
+
+        &.msg {
+        	background-position: -275px -8px;
+
+        	&.active {
+				background-position: -341px -8px;
+            }
+        }
+
+        &.alrt {
+        	background-position: -406px -8px;
+
+        	&.active {
+				background-position: -472px -8px;
+            }
+        }
+
+        &.frnds {
+        	background-position: -537px -8px;
+
+        	&.active {
+				background-position: -603px -8px;
+            }
+        }
+
+        &.srch {
+        	background-position: -668px -8px;
+
+        	&.active {
+				background-position: -734px -7px;
+            }
+        }
+    }
+    .img-icm-badge {
+        font-size: 12px;
+        line-height: 16px;
+        position: absolute;
+        top: 4px;
+        right: 0px;
+        height: 16px;
+        padding: 0 3px;
+        color: $white;
+        border-radius: 3px;
+        background: $orange;
+    }
+}
+
+
+/*
+    =Sub Nav Container
+*/
+.sub-nav-container {
+    display: flex;
+    background-color: $grey-bg;
+    padding-left: 10px;
+
+    .sub-nav-item {
+        flex: 1;
+
+        & + .sub-nav-item .sub-nav-txt {
+            border-left: 1px solid $grey-light;
+        }
+    }
+
+    .sub-nav-txt {
+        margin: 10px 0;
+        line-height: 30px;
+        text-align: center;
+        color: $text-grey-dark;
+
+        &.active {
+            color: $text-orange;
+        }
+    }
+
+    .subnav-edit {
+        position: relative;
+
+        a.btn-subnav-edit {
+            display: block;
+            width: 30px;
+            height: 50px;
+            background: url(../images_mobile/subnav-edit.png) center no-repeat;
+        }
+    }
+}
+
+
+/*
+    =Sub Nav Popup
+*/
+.subnav-edit-pp {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    background: $white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 1px $grey-light;
+
+    a.subnav-pp-item {
+        display: block;
+        line-height: 40px;
+        width: 120px;
+        padding: 0 10px;
+        font-size: 12px;
+        color: $text-grey-dark;
+        border-top: 1px solid $grey-light;
+    }
+
+    li:first-of-type a.subnav-pp-item {
+        border-top: none;
+    }
+
+    &.hide {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

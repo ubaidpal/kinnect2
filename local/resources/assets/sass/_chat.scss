@@ -1,0 +1,587 @@
+
+    .chat-wrapper{
+        background: $orange;
+        padding-bottom: 0px !important;
+        position: fixed;
+        bottom: 0px;
+		right:1%;
+		width:216px;
+		border-radius: 10px 10px 0 0;
+		
+		&.offline{ height:32px; border-radius: 5px 5px 0 0; width:32px;
+				
+				.online-friends-header, .friends-list-wrapper{display:none !important;}		
+				.self-online-status{ background-position:left bottom;}
+			}
+		
+		&.online{
+				
+				.self-online-status{ background-position:left top;}
+				.online-friends-header, .friends-list-wrapper{display:block;}
+			}
+		
+		.self-online-status{background-image: url(../images/svg/online_offline.svg); position:absolute; right:7px; top:8px; background-repeat:no-repeat; width:17px; height:17px; text-indent: -9999px;}
+		
+    }
+	
+	.new_notification
+		{
+		-webkit-animation: blink 1s step-end infinite alternate;
+		-moz-animation: blink 1s step-end infinite alternate;
+		-ms-animation: blink 1s step-end infinite alternate;
+		-o-animation: blink 1s step-end infinite alternate;
+		animation: blink 1s step-end infinite alternate;
+		}
+		
+		@keyframes blink {  
+			50% { background:$orange; }
+		}
+		
+		@-webkit-keyframes blink {
+			50% { background:$orange; }
+		}
+		@-o-keyframes blink {
+			50% { background:$orange; }
+		}
+		@-ms-keyframes blink {
+			50% { background:$orange; }
+		}
+
+	#chat_windows{position:fixed;right:240px;bottom:0px;
+		
+		.settings-panel	{ 
+			background: #dddddd none repeat scroll 0 0;
+			border-radius: 5px;
+			color: #505050;
+			left: 10px;
+			padding: 5px;
+			position: absolute;
+			top: 41px;
+			width: 88%;
+			
+			&:before{
+				 	content: ' ';
+					height: 0;
+					position: absolute;
+					width: 0;
+					border: 10px solid transparent;
+					border-bottom-color: #dddddd;
+					position: absolute;
+					right: 32px;
+					top: -19px;
+				}
+			.settings-options{
+				div{cursor:pointer; padding-bottom:5px;
+					&:hover{text-decoration:underline;}	
+				}
+			}
+			
+			.name-update{ overflow:hidden;
+					
+				.update-name-btn{ 
+					float:right;
+					background: #ee4b08 none repeat scroll 0 0;
+					border: medium none;
+					border-radius: 3px;
+					color: #ffffff;
+					cursor: pointer;
+					line-height: 21px;
+					outline: medium none;
+					width: 52px;
+					}
+				.group-name-field{					
+					background-color: #fff;
+					border: medium none;
+					line-height: 23px;
+					margin: 0;
+					outline: medium none;
+					padding: 0px 3px;
+					width: 158px;
+				}
+			}
+		}
+	
+		.messages{ display: block; min-height: 300px; max-height:300px; overflow: auto; padding: 5px; width: 96%; background:$grey-bg; margin-top:25px;}	
+		.chat-window{
+			background: #f5f5f5 none repeat scroll 0 0;
+			border: 1px solid #c0c0c0;
+			border-radius: 10px 10px 0 0;
+			line-height: normal;
+			margin-left: 10px;
+			overflow: hidden;
+			position: relative;
+			width: 250px;
+			display:inline-block;
+			
+			&:after{
+				background: #000000 none repeat scroll 0 0;
+				bottom: 0;
+				height: 50px;
+				left: 0;
+				opacity: 0.5;
+				position: absolute;
+				width: 100%;
+				z-index: 1;	
+				
+			}	
+			.all-messages-in-box{ position:relative;}
+			
+			.load-earlier-messages{
+					
+					color: $text-orange;
+					background:$grey-bg;
+					cursor: pointer;
+					font-size: 12px;
+					line-height: 25px;
+					margin: 0 auto;
+					padding: 0 5px;
+					position: absolute;
+					left:0;
+					top:-25px;
+					text-align: center;
+					text-decoration: none;
+					width: 96%;
+					
+					&:hover{ text-decoration:underline;}
+							
+				}
+		}
+		input[type="text"]{ 
+			border: 1px solid $grey-light;
+			border-radius: 3px;
+			margin: 5px;
+			padding: 3px;
+			width:92.6%;
+		}
+	}
+    .online-friends-div{
+        line-height: normal;
+		.online-friends-header{ overflow:hidden; padding:2px 0px; margin-right:20px;
+			em{ background:url(../images/svg/online_friends.svg) left center no-repeat; font-style:normal; font-size:14px; color:$text-white;padding: 8px 10px 6px 20px; margin-left: 7px; display:block; line-height:14px; float:left;}
+			span{color:$text-white; float: right; padding: 5px 10px;}
+		}
+    }
+
+    .my-message{
+		margin-bottom: 5px;
+		direction:rtl;
+		
+		div{ overflow:hidden;
+			
+			span.pic{
+				border: 1px solid #ccc;
+				border-radius: 50%;
+				float: right;
+				overflow: hidden;
+				
+				img{display: block;}
+			}
+			span.msg-content{
+			    border-radius: 8px 0px 8px 8px;
+				direction: ltr;
+				display: inline-block;
+				float: right;
+				font-size: 12px;
+				margin:5px 5px 0 0;
+				max-width: 166px;
+				min-width: 10px;
+				padding: 5px;
+				background: #E6F6FF;
+				color: #636363;
+				word-wrap:break-word;
+			}
+		}
+    }
+
+    .friend-message{
+        margin-bottom: 5px;
+		direction:ltr;
+		
+		div{ overflow:hidden;
+		
+			span.pic{
+				border: 1px solid #ccc;
+				border-radius: 50%;
+				float: left;
+				overflow: hidden;
+				
+				img{display: block;}
+			}
+			span.msg-content{
+			    background: #FFF9F0 none repeat scroll 0 0;
+				border-radius: 0 8px 8px;
+				direction: ltr;
+				display: inline-block;
+				float: left;
+				font-size: 12px;
+				margin:5px 0px 0 5px;
+				max-width: 166px;
+				min-width: 10px;
+				padding: 5px;
+				color: #7B7B7B;
+				word-wrap:break-word;
+			}
+		}
+    }
+    .close-chat{
+        background: url(../images/svg/chat_icons.svg) -42px center no-repeat;
+		float: right;
+		margin-left: 5px;
+		margin-top: 3px;
+		width:13px;
+		height:12px;
+		text-indent:-999px;
+    }
+
+    .add-to-chat{
+        background: url(../images/svg/chat_icons.svg) -20px center no-repeat;
+		float: left;
+		margin-left: 5px;
+		margin-top: 3px;
+		width:15px;
+		height:12px;
+		text-indent:-999px;
+    }
+	.chat-settings{
+        background: url(../images/svg/chat_icons.svg) left center no-repeat;
+		float: left;
+		margin-left: 5px;
+		margin-top: 3px;
+		width:12px;
+		height:12px;
+		text-indent:-999px;
+    }
+	.friends-list-wrapper{ 
+		background: $grey-bg none repeat scroll 0 0;
+		
+		li{
+			cursor: pointer;
+			overflow: hidden;
+			padding: 10px 22px 10px 10px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			border-bottom:1px solid $grey-light;
+			line-height:33px;
+			
+			&:last-child{border-bottom:none;}
+			
+			img{ float:left; margin-right:5px; border-radius:50%;}
+		}
+		.online{ background: #f5f5f5; border-bottom: 1px solid #c0c0c0; border-collapse: separate; border-spacing: 5px; display: table; overflow: hidden; width: 100%;
+			span{ 
+				display: table-cell;
+				line-height: 24px;
+				text-align: center;
+				width: 50%;
+				cursor:pointer;
+				background:$grey-dark;
+				color:$text-white;
+				border-radius:8px;
+				
+				&.active{ background:$orange; color:$text-white;}
+			}
+		}
+	}
+.chat-window-user{ background:$grey-dark; padding:7px 10px 4px 5px; overflow:hidden; cursor:pointer;
+
+
+
+
+	.chat-window-display-name{ width: 165px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color:$text-white; position:relative; padding-left:15px; display:inline-block;
+		
+		&:before{
+			background: #7DD635 none repeat scroll 0 0;
+			border-radius: 50%;
+			content: "";
+			height: 8px;
+			position: absolute;
+			left: 0px;
+			top: 4px;
+			width: 8px;
+			border: 1px solid #A5A5A5;
+			
+			}	
+	}
+	.chat-options{ float:right;
+		span{ cursor:pointer;}	
+	}
+}
+#friends_online{ max-height: 440px; overflow-y: auto;
+	li{ position:relative;
+		&:after{
+			background: #66a731 none repeat scroll 0 0;
+			border-radius: 50%;
+			content: "";
+			height: 10px;
+			position: absolute;
+			right: 7px;
+			top: 22.5px;
+			width: 10px;
+		}
+	}
+}
+div.TokenizeMeasure,
+div.Tokenize ul li span,
+div.Tokenize ul.TokensContainer li.TokenSearch input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+div.Tokenize {
+    background: #dddddd none repeat scroll 0 0;
+    left: 0;
+    padding-bottom: 5px;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+	z-index:3;
+}
+
+div.Tokenize ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.Tokenize ul li {
+    white-space: nowrap;
+}
+
+div.Tokenize ul.TokensContainer {
+    cursor: text;
+    overflow-y: auto;
+	overflow-x:hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+div.Tokenize ul.TokensContainer.Autosize {
+    height: auto;
+}
+
+div.Tokenize.Disabled ul.TokensContainer,
+div.Tokenize.Disabled ul.TokensContainer input {
+    cursor: not-allowed;
+}
+
+div.Tokenize ul.TokensContainer li.Token {
+    background-color: #ffdfd2;
+    border-radius: 12px;
+    float: left;
+    line-height: 14px;
+    margin: 2px;
+    padding: 2px 2px 2px 5px;
+}
+
+div.Tokenize ul.TokensContainer.ui-sortable:not(.ui-sortable-disabled) li.Token {
+    cursor: move;
+}
+
+div.Tokenize ul.TokensContainer li.Token.MovingShadow  {
+    border: 1px solid #fcefa1;
+    background-color: #fbf9ee;
+}
+
+div.Tokenize ul.TokensContainer li.Token.PendingDelete {
+    opacity : 0.5;
+    -moz-opacity : 0.5;
+    -ms-filter: "alpha(opacity=50)";
+    filter : alpha(opacity=50);
+}
+
+div.Tokenize ul.TokensContainer li.Token,
+div.Tokenize ul.TokensContainer li.TokenSearch {
+   /* margin: 5px 0 0 5px;
+    height: 18px;
+    float: left;*/
+}
+div.Tokenize ul.TokensContainer li.TokenSearch { background:#ffffff; border-radius:3px; clear:both; float:none;}
+
+div.Tokenize ul.TokensContainer li.TokenSearch input {
+    margin: 0;
+    padding: 2px 3px;
+    background-color: #fff;
+    line-height: 18px;
+    border: none;
+    outline: none;
+	width:179px;
+}
+
+div.Tokenize ul.TokensContainer li.Placeholder {
+    color: #ddd;
+    position: absolute;
+    line-height: 20px;
+    padding: 5px 0 0 5px;
+    display: none;
+}
+
+div.Tokenize ul.TokensContainer,
+div.Tokenize ul.Dropdown {
+	background-color:#ffffff;
+  	border: 1px solid #ccc;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 185px;
+	border-radius:3px;
+	max-height:180px;
+
+}
+
+div.Tokenize ul.TokensContainer li.Token a.Close {
+    background: #ee4b08 none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 14px !important;
+    line-height: 12px;
+    margin: 1px 1px 1px 5px;
+    padding: 1px 3px;
+}
+
+div.Tokenize.Disabled ul.TokensContainer li.Token a.Close {
+    display: none;
+}
+
+div.Tokenize ul.TokensContainer li.Token a.Close:hover {
+    background:#ee4b08;
+    text-decoration: none;
+}
+
+div.Tokenize ul.Dropdown {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+
+    display: none;
+    width: 187px;
+    padding: 5px 0;
+    margin: -1px 0 0 5px;
+    position: absolute;
+    background-color: white;
+    overflow-y: auto;
+
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+
+    z-index: 20;
+}
+
+div.Tokenize ul.Dropdown li {
+    padding: 5px 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+div.Tokenize ul.Dropdown li.Hover {
+    text-decoration: none;
+    background-color: #ffd4bb;
+    /*background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+    background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+    background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+    background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);*/
+}
+
+.friend-selection-done-btn{ 
+	background: #ee4b08 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 22px;
+    outline: medium none;
+    position: absolute;
+    right: 5px;
+    top: 35px;
+    width: 52px;
+	z-index:3;
+}
+
+.chat-fields-wrapper{ background:$grey-bg; border-top:1px solid #ccc; overflow:hidden; padding: 3px 0;
+	
+	.select-attachment{ float:left; width:40px; height:33px; text-indent:-99999px; border-right: 1px solid #ccc; background:url(../images/svg/attachment_img.svg) center center no-repeat; cursor: pointer;}
+	.attachment-loader{ float:left; width:40px; height:33px; text-indent:-99999px; border-right: 1px solid #ccc; background:url(../images/svg/ellipsis.svg) center center no-repeat; cursor: pointer;}
+	input{ background: transparent none repeat scroll 0 0; border: medium none !important;  float: left;  width: 182px !important;}
+}
+
+.attachment-file{ 
+	background:url(../images/svg/download_26.svg) 0px center no-repeat; 
+    color: #505050;
+    float: left;
+    overflow: hidden;
+    padding: 6px 0px 6px 35px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 124px;
+}
+
+#conversation-messages{ min-height:600px; max-height:600px; overflow-y: auto;}
+.message-time{ direction: ltr; display: inline-block;}
+.link-img{ float:left; margin-right:10px;}
+
+.new-message-field{
+	div.Tokenize {
+		background: #d8d8d8 none repeat scroll 0 0;
+		border-radius: 10px;
+		left: 0;
+		padding: 5px;
+		position: absolute;
+		top: 31px;
+		width: 98.5%;
+	}
+	div.Tokenize ul.TokensContainer, div.Tokenize ul.Dropdown {
+		background-color: #ffffff;
+		border: 0 solid #ccc;
+		border-radius: 8px;
+		box-sizing: border-box;
+		margin-left: 0;
+		margin-top: 0;
+		max-height: 180px;
+		padding: 2px;
+		width: 100%;
+	}
+	div.Tokenize ul.TokensContainer li.Placeholder {
+		color: #ddd;
+		display: none;
+		line-height: 20px;
+		padding: 0;
+		position: absolute;
+	}
+	
+	div.Tokenize ul.TokensContainer li.TokenSearch {
+		background: #ffffff none repeat scroll 0 0;
+		border-radius: 3px;
+		clear: none;
+		float: left;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

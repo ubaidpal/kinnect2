@@ -1,0 +1,35 @@
+
+/*
+	Brands
+*/
+.brands-container,
+.recommended-brands-container {
+
+	.round-title-txt {
+		color: $text-orange;
+	}
+
+	.brand-btn {
+		width: 80%;
+		margin: 10px auto 20px auto;
+
+		.btn {
+			background-color: $grey-light;
+			line-height: 40px;
+		}
+	}
+}
+
+.recommended-brands-container {
+
+	.btn-round-img {
+		color: $white;
+		background-color: $orange;
+	}
+}
+
+
+
+
+
+

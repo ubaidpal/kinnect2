@@ -1,0 +1,40 @@
+.ftr-main {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: $grey-dark;
+	z-index:5;
+}
+.ftr-container {
+	width: 1170px;
+	margin: 0 auto;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+}
+.sptr-ftr {
+	color: #fff;
+	margin: 0 5px;
+}
+.ftr-container a {
+	color: #fff;
+	font-size:12px;
+}
+.ftr-container a:hover {
+	text-decoration: underline;
+}
+.company-name{ 
+	background-image:url(../images/svg/heade_icons/logo.svg);
+	background-position: left 4px;
+	background-repeat: no-repeat;
+	background-size: 50% auto;
+	font-size: 12px;
+	height: 24px;
+	width:150px;
+	padding-right: 20px;
+	color:$text-white;
+	float:left;
+	margin-top:2px;
+	text-align:right;
+}

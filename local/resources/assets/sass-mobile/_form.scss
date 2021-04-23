@@ -1,0 +1,327 @@
+/*
+    Form Container
+*/
+.form-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 10px;
+
+    // Label
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin: 5px 0;
+        font-weight: bold;
+    }
+    label.label-main {
+        color: $text-orange;
+        font-size: 16px;
+        margin: 10px 0;
+    }
+}
+
+/*
+    Input Block
+*/
+.form-block {
+    position: relative;
+
+    // Help Block
+    .help-block {
+        font-size: 12px;
+        line-height: 14px;
+        display: block;
+        margin: 5px 5px 0 5px;
+        color: $text-grey-light;
+    }
+}
+
+/*
+    Input Item
+*/
+.form-item {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: $text-grey-dark;
+    background-color: $grey-bg;
+    background-image: none;
+    border: none;
+    border-radius: 8px;
+    -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+    &.form-itmb {
+        background-color: $white;
+        border: 1px solid $orange;
+        margin: 10px 0;
+    }
+}
+.form-item:focus {
+    outline: 0;
+}
+.form-item::-moz-placeholder,
+.form-item::-webkit-input-placeholder,
+.form-item:-ms-input-placeholder  {
+    color: $text-grey-light;
+}
+
+/*
+    =Search Bar
+*/
+.form-search {
+    position: relative;
+
+    .search-icon {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin: 14px 10px;
+        background-color: transparent;
+        background-image: url(../images_mobile/search-icon.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    .form-item {
+        padding-left: 30px;
+    }
+    .faq-search {
+        background-color: $white;
+        border: 1px solid $orange;
+    }
+}
+
+
+/*
+    Select Item
+*/
+select {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 0 10px;
+    color: $text-grey-light;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: $grey-bg url(../images_mobile/select-img.png) 95% center no-repeat;
+    background-size: 10px;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    -o-appearance:none;
+    -webkit-appearance:none;
+}
+
+/*
+    Textarea
+*/
+
+textarea {
+    display: block;
+    width: 100%;
+    height: 50px;
+    resize: none;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background-color: $grey-bg;
+    padding: 5px 10px;
+
+    &.textareas {
+        height: 200px;
+    }
+}
+
+/*
+    =RADIO btn
+*/
+.rad {
+    cursor: pointer;
+    // -webkit-tap-highlight-color: rgba(0,0,0,0);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    display: block;
+    margin: 5px 0;
+}
+.rad > input { /* HIDE ORG RADIO & CHECKBOX */
+    visibility: hidden;
+    position: absolute;
+}
+/* RADIO & CHECKBOX STYLES */
+.rad > i {     /* DEFAULT <i> STYLE */
+    display: inline-block;
+    vertical-align: middle;
+    width:  14px;
+    height: 14px;
+    border-radius: 50%;
+    // transition: 0.05s;
+    box-shadow: inset 0 0 0 8px $white;
+    border: 1px solid $grey-dark;
+    background: $white;
+    margin-bottom: 2px;
+}
+
+.rad > input:checked + i{ /* (RADIO CHECKED) <i> STYLE */
+    box-shadow: inset 0 0 0 2px $white;
+    background: $orange;
+}
+
+/*
+    =Radio3 Container
+*/
+.r3i-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*
+    =Radio3 Item
+*/
+.radio3-item {
+    margin: 10px;
+    overflow: hidden;
+    line-height: 16px;
+    font-size: 12px;
+
+  .radio3-title {
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 75px;
+    float: left;
+  }
+  .r3help-txt {
+    font-size: 12px;
+    font-weight: normal;
+    color: $text-grey-light;
+    line-height: 12px;
+    margin-top: 3px;
+  }
+  label {
+    margin: 0;
+  }
+}
+
+/*
+    =Checkbox Container
+*/
+.ckbox-container {
+    margin: 0 10px;
+}
+
+/*
+    =Checkbox btn
+*/
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label {
+    display: inline-block;
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    cursor: pointer;
+    background: url(../images/checkbox.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 16px 52px;
+}
+input[type=checkbox]:checked + label {
+    background-position: 0 -18px;
+}
+
+span.ckbx {
+    line-height: 16px;
+    display: block;
+}
+
+.ckbox-item {
+    margin: 7px 0;
+
+    span.ckbx {
+        padding-left: 21px;
+    }
+}
+
+
+
+/*
+    Date of Birth
+*/
+.dob-container {
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    .select-dd {
+        float: left;
+
+        select {
+            box-sizing: content-box;
+            background:$grey-bg;
+        }
+        select.dd {
+            width: 20px;
+        }
+        select.mm {
+            width: 25px;
+        }
+        select.yy {
+            width: 40px;
+        }
+    }
+    .dob-separator {
+        float: left;
+        line-height: 45px;
+        padding: 0 10px;
+    }
+}
+
+/*
+    =Form-item - Delete btn
+*/
+.formd-container {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

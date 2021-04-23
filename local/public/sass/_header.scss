@@ -1,0 +1,80 @@
+.header-main{ background-color:$grey-dark; height:30px; margin-bottom:10px; padding:15px 0px; position:fixed; top:0; width:100%; z-index:2;}
+.header-container{ width:1170px; margin:0 auto;}
+.logo{background:url(../images/header/kinnect2-logo.png) left center no-repeat; width:140px; height:30px; display:inline-block; float:left;}
+
+.header-main ul{float:right;}
+.header-main ul li{ float:left;}
+
+.header-main input[type="text"]{
+    background-color:$serach-bgcolor;
+    border:1px solid $grey-dark;
+    color: $text-white;
+    font-size: 14px;
+	padding:4px 30px 7px 8px;
+	width:218px;
+}
+.header-main input:focus { color: $text-grey-light;}
+.header-main form{position:relative;}
+.header-main a.sIcon{ background:url(../images/serch-icon.png) left center no-repeat; width:14px; height:13px; display:block; position:absolute; right:9px; top:9px;}
+
+ul li.header-menu {padding:6px 0px;}
+ul li.header-menu a{ width:18px; height:18px; float:left; display:block; background-position:center center; background-repeat:no-repeat; margin-right:20px;}
+ul li.header-menu a:hover{ cursor:pointer; opacity:0.6;}
+	
+ul li.header-menu a.dashboard{ background-image:url(../images/header/dashboard.png)}
+ul li.header-menu a.inbox{ background-image:url(../images/header/inbox.png)}
+ul li.header-menu a.notifications{ background-image:url(../images/header/notificaitons.png)}
+ul li.header-menu a.invite{ background-image:url(../images/header/invite.png)}
+ul li.header-menu a.favourite{ background-image:url(../images/header/favourite.png)}
+ul li.header-menu a.koins{ background-image:url(../images/header/koins.png)}
+
+ul li.header-menu a span{
+	background-color:#ff0000; 
+	border-radius: 50%;
+    font-size: 11px;
+    left: 10px;
+    padding: 3px 4px;
+    position: relative;
+    text-align: center;
+    top: -9px;
+	color:$text-white;
+} 
+
+ul li a.profile img{border-radius:50%; float:left; margin-top:1.5px; margin-right:10px;}
+
+ul li a.profile{background:url(../images/header/profile-tip.png) right center no-repeat; padding:0 16px 0 0; color:$text-grey-light; font-size:$font-size-14px; display: inline-block; line-height:26px;}
+
+ul li.profile-tooltip{
+	background-color: $serach-bgcolor;
+    border-radius: 15px 10px 10px 15px;
+    margin-left: 10px;
+    padding: 2px 10px 2px 3px;
+	position:relative;
+	}
+
+#popUpText
+{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0px;   
+	border:1px solid #ee4b08;
+	border-radius:10px;
+	min-width:168px;
+	background-color:#f5f5f5;
+	overflow:hidden;
+	
+	a{ display:block; padding:15px 23px; font-size:13px; color:#747474;}
+	a:hover{ background-color:#ee4b08; color:$text-white;} 
+	
+}
+#popUp{display:none; position:absolute; right:40px;}
+#popUp:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	bottom: -22px;
+	border: 5px solid;
+	border-color: transparent transparent $orange transparent;
+}

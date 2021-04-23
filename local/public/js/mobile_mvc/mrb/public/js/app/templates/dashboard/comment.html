@@ -1,0 +1,20 @@
+<div class="comment-pnl">
+
+    <a href="<%-poster_href%>" title="username" class="user-image"><img src="<%-userPhoto %>" width="45" height="45" alt="" title="user" /></a>
+    <div class="comment-text">
+        <a class="commentor-name" href="<%- poster_href %>"><%- poster_name %></a>
+        <p><%= body %></p>
+        <% if($("#profileLink").data("socket") && (poster_id == $("#profileLink").data("socket"))) { %>
+            <span class="delete-comment" title="Delete comment"></span>
+        <% } %>
+        <span class="like like-comment <%- comment_like_cls %>"><a></a> &ndash; <%- like_count %> Like this</span>
+        <span class="date"><%- formatted_created_date %></span>
+    </div>
+</div>
+
+
+<div>
+
+
+
+</div>

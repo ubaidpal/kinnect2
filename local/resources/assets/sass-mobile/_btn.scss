@@ -1,0 +1,151 @@
+/*
+    default Button
+*/
+.btn, .orngBtn {
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 45px;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+    color: $text-white;
+    border-radius: 8px !important;
+    background: $orange;
+    padding: 0 10px;
+	border:none;
+	-webkit-appearance:none;
+	-ms-appearance:none;
+	-o-appearance:none;
+	-moz-appearance:none;
+
+    .btn-img {
+        display: inline-block;
+        width: 12px;
+        height: 14px;
+        margin-right: 5px;
+        margin-bottom: 4px;
+        vertical-align: middle;
+        /* background-color: green;*/
+        background-image: url(../images/btn-img.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+}
+
+.btn-grey {
+    background-color: $grey-dark;
+}
+
+.btn-signup {
+    line-height: 45px;
+    color: $text-orange;
+    border: 1px solid $orange;
+    background-color: $white;
+}
+
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active {
+    color: $white;
+    text-decoration: none;
+}
+
+.btn-signup:hover,
+.btn-signup:focus,
+.btn-signup:active,
+.btn-signup.active {
+    color: $text-orange;
+}
+
+/*
+    =btn-container
+*/
+.btn-container {
+    margin: 15px 5px;
+    display: flex;
+    
+    .btn {
+        margin: 5px;
+    }
+}
+
+/*
+    =Single btn Container
+*/
+.btn-rghtc {
+    margin: 5px 10px;
+    overflow: hidden;
+    .btn {
+        width: 150px;
+        float: right;
+    }
+}
+
+/*
+    =btn3 Container
+*/
+.btn3-container {
+    display: flex;
+    margin: 5px;
+}
+.btn3 {
+    font-size: 14px;
+    line-height: 35px;
+    margin: 0 2px;
+    background-color: $grey-light;
+}
+
+
+/*
+    =Form Item del
+*/
+.btn-formd {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin: 0 10px;
+    margin-bottom: 5px; 
+    background-image: url(../images_mobile/btn-formd.png);
+    background-repeat: no-repeat;
+    background-size: 34px 34px;
+    background-position: center;
+}
+
+/*
+    =btn Center Container
+*/
+.btnc-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+/*
+    =btn Center
+*/
+.btnc {
+    color: $orange;
+    font-size: 16px;
+}
+
+.btnSingle {
+    margin: 20px 30px;
+    .btn {
+        line-height: 35px;
+        font-size: 16px;
+    }
+}
+.mt15 {margin-top: 15px;}
+
+
+
+
+
+
+
+
+

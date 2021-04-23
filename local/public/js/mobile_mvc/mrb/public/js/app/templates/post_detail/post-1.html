@@ -1,0 +1,155 @@
+<% var post_type_cls = (is_group_post) ? "post_group" : "post_timeline" %>
+
+
+<div class="post-detail-left-col media object_<%-object_type%>">
+
+    <% if(object_type == "album_photo") {%>
+    <div class="album-photo">
+
+        <% if(object_photo_path.length > 0){%>
+        <% $.each(object_photo_path, function(index,elem){ %>
+        <div class="bx-slide-wrapper">
+            <img src="<%-this%>">
+        </div>
+        <% }) %>
+        <% } %>
+    </div>
+    <% }else if(object_type == 'cover_photo') {%>
+    <div class="album-photo">
+        <div>
+            <img  src="<%- object_photo_path %>" align="middle">
+        </div>
+    </div>
+
+    <% } %>
+</div>
+
+<div class="post-detail-right-col">
+    <div class="<%-post_type_cls%>">
+        <div class="user-name-pic">
+            <a href="<%-base_url%>/profile/<%-subject_href%>">
+                <img src="<%- userPhoto %>" width="55" height="55" alt="User Name"/>
+            </a>
+            <div>
+                <div class="post-header-one">
+                    <a href="<%-base_url%>/profile/<%-subject_href%>"><%- subject_name %></a>
+                    <% if(post_type == 'share'){ %>
+                    <span class="status_string"><%-post_header%>&nbsp;<a href="<%-base_url%>/profile/<%-subject_owner_href%>" class="owner_name"><%- subject_owner_name %></a>&apos;s </span>
+                    <a href="<%-base_url%>/view/<%-object_type%>/<%-object_id%>" class="status"><%-object_display_name%></a>
+                    <% }else{ %>
+                    <span class="status_string"><%-post_header%></span>
+                    <%-object_display_name%>
+                    <% } %>
+                    <% if(is_group_post && typeof group.id != 'undefined'){ %>
+                        <%-post_header_group_prefix%> <a href="/group/<%-group.id%>" class="group_name"><%- group.name %></a>
+                    <% } %>
+
+                </div>
+                <em title=""><%- formatted_created_date %></em>
+            </div>
+            <span style="cursor: pointer; float: right" class="§Popup"></span>
+            <% if(is_object_owner){ %>
+                <!--<span style="cursor: pointer; float: right" class="delete-post">Delete</span>-->
+            <% } %>
+
+        </div>
+        <div class="posted-text">
+
+            <% if(post_type == 'friends'){ %>
+                <div>
+                    <a href="profile/<%- object_href%>"><%-object_name%></a> <%-modified_post_body%> <a href="profile/<%- subject_href%>"><%-subject_name%></a>
+                </div>
+            <% }else if(post_type == 'follow'){ %>
+            <div>
+                <a href="profile/<%- subject_name%>"><%-subject_name%></a> is now following <a href="profile/<%- object_href%>"><%-object_name%></a>
+            </div>
+            <% }else if(post_type == 'share'){%>
+            <div>
+                <%= post_body %>
+            </div>
+                <% if(post_owner_body != ''){ %>
+                <div class="re_share_container">
+                    <%= post_owner_body %>
+                </div>
+                <% } %>
+            <% }else{%>
+            <%= post_body %>
+            <% } %>
+        </div>
+
+        <div class="feed-options post-detail-options">
+            <a href="javascript:void(0);" title="Like" class="like like-post <%- like_cls %>"></a>
+            <a href="javascript:void(0);" title="Dislike" class="dislike dislike-post <%- dislike_cls %>"></a>
+            <a href="javascript:void(0);" title="Favourite" class="favourite favourite-post <%- fav_cls %>"></a>
+            <!--<a href="javascript:void(0);" data-id="reShare" title="Share" class="share share-post-kinnct"></a>
+            <a href="javascript:void(0);" title="Social" class="social-link social-share-post"></a>
+            <% if(!is_owner || is_owner == 0){%>
+                <a href="javascript:void(0);" data-id="flag" title="Flag" class="flag flag-post"></a>
+            <% } %>
+            -->
+            <% if(object_type == 'video'){ %>
+                <a download="" href="<%- object_path %>" class="download download-video" title="Download Video">Download Video</a>
+            <% } %>
+        </div>
+
+        <div class="otherLikes">
+            <%
+            if(likes.friends.length > 0) {
+            $.each(likes.friends, function(index,element){
+
+            %>
+            <% if(index != 0 ){ %>&sbquo;<% } %><a href="/profile/<%- this.href %>" title="name"><%- this.name %></a>
+            <%
+            });
+            }
+            if(likes.friends.length > 0 && likes.others > 0){
+
+            %>
+            and <a href="javascript:void(0);"><%- likes.others %> others</a>
+            <% }else if(likes.friends.length < 1 && likes.others > 0){ %>
+
+            <%- likes.others %>
+
+            <% if(likes.others == 1){ %>
+            Kinnector
+            <% }else{ %>
+            Kinnectors
+            <% } %>
+
+            <% } %>
+            <% if(likes.friends.length > 0 || likes.others >0 ){ %>
+            like this.
+            <% } %>
+        </div>
+
+        <div class="post-write-comment">
+
+            <div class="options-detail post-detail-counts">
+                <span class="likes-count"> <%- post_like_count %> Likes </span> |
+                <span class="dislikes-count"> <%- post_dislike_count %> Dislikes </span> |
+                <span class="comments-count"> <%- post_comment_count %> Comments </span> |
+                <span class="shares-count"> <%- post_share_count %> Shares </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="comments-container" id="comments_container" style="max-height: 420px;overflow-y: auto; overflow-x:hidden; margin-bottom:10px;">
+    </div>
+
+
+
+
+    <% if(object_comment_permission && ($("#group-details-wrapper").length < 1 || $("#group-details-wrapper").data("comment-permission") )){ %>
+        <div class="write-comment">
+            <form class="my-comment">
+                <textarea placeholder="Write Comment" alt="" maxlength="" size="60" class="box-comment disable-required write-comment-box" name="" autocomplete="off"></textarea>
+            </form>
+            <a class="orngBtn send-comment disable-required" title="Comment">Comment</a>
+        </div>
+    <% } %>
+
+
+</div>
+
+
+

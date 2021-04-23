@@ -1,0 +1,309 @@
+/*	================================
+			BG Image Slider
+	================================  */
+.cbp-bislideshow {
+	list-style: none;
+	width: 100%;
+	min-width:1170px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	padding: 0;
+	margin: 0;
+}
+.cbp-bislideshow li {
+	position: absolute;
+	width: 101%;
+	height: 101%;
+	top: -0.5%;
+	left: -0.5%;
+	opacity: 0;
+	-webkit-transition: opacity 3s;
+	-moz-transition: opacity 3s;
+	transition: opacity 3s;
+}
+.backgroundsize .cbp-bislideshow li {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+.backgroundsize .cbp-bislideshow li img {
+	display: none;
+}
+.cbp-bislideshow li img {
+	display: block;
+	width: 100%;
+}
+
+
+
+/*	================================
+			Login Page
+	================================  */
+.login-page-wrapper {
+	width: 1170px;
+	margin: 0 auto;
+
+	.welcome {
+		position: absolute;
+		top: 223px;
+		float: left;
+		color: #fff;
+		line-height: 55px;
+		font-size: 42px;
+		> span {
+			color: $orange;
+		}
+		p {
+			font-size: 20px;
+			line-height: 25px;
+			span {
+				font-weight:bold;
+			}
+		}
+	}
+}
+.login-container {
+	margin-top: 80px;
+	width: 470px;
+}
+
+
+/* Login Form */
+
+.login-container table {
+	width: 100%;
+	height: 70px;
+	background: url('../images/login-page/login-bg-img.png');
+	border-radius: 10px;
+	overflow: hidden;
+	
+	input[type="text"],
+	input[type="password"] {
+		height: 30px;
+		color: $text-grey-dark;
+		border: none;
+	    outline: none;
+	    padding: 0 10px 0 10px;
+		border-radius: 8px;
+		margin: 10px 0 0 10px;
+		width:85%;
+	}
+	a.btn {
+		width: 70px;
+		color: #fff;
+		background-color: $orange;
+		margin: 10px 0 0 10px;
+	}
+	input[type="checkbox"] {
+	  margin: 0 0 4px 20px;
+	}
+	label {
+		vertical-align: 2px;
+		font-size: 12px;
+		cursor: pointer;
+	}
+	a.forgot-pass {
+		color: $text-grey-dark;
+		font-size: 12px;
+		vertical-align: 1px;
+	    margin-left: 20px;
+	}
+	a.forgot-pass:hover {
+		text-decoration: underline;
+	}
+}
+ 
+
+/* SignUp Container */
+.login-container .signup-container {
+	height: 530px;
+	padding: 20px;
+	background: url('../images/login-page/login-bg-img.png');
+	margin-top: 20px;
+	border-radius: 10px;
+	
+	.signup-header{line-height:1; 
+	
+		span {
+			line-height: 14px;
+			font-size: 18px;
+		}	
+	}
+	.signup-header span:last-of-type {
+		font-size: 16px;
+		line-height: 12px;
+	}
+	.signup-header h2 {
+		line-height: normal;
+		font-size: 32px;
+		color: $orange;
+		font-weight: bold;
+	}
+
+	.signup-form {
+		margin-top: 20px;
+
+		input,
+		select {
+			width: 255px;
+			height: 35px;
+			color: $text-grey-dark;
+			border: none;
+		    outline: none;
+		    padding: 0 0 0 15px;
+			border-radius: 8px;
+		}
+		input[type="password"],
+		select {
+			margin-top: 10px;
+		}
+		input.profile-address {
+			width: 100%;
+			box-sizing:border-box;
+		}
+		span {
+			display: block;
+			line-height: normal;
+			font-size: 12px;
+			margin-top: 5px;
+			margin-left: 15px;
+		}
+		select {
+			color: $text-grey-light;
+			background: #fff url('../images/login-page/login-dropdown.png') no-repeat 95% 50%;
+			-webkit-appearance: none;
+			-moz-appearance:    none;
+			appearance:         none;
+		}
+		select option {
+			color: $text-grey-dark;
+		}
+		.signup-policy {
+			line-height: 18px;
+			margin-top: 15px;
+
+			a {
+				color: $blue;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+		}
+		.signup-pager {
+			margin: 40px 0 20px 0;
+			overflow:hidden;
+			.circle-pager {
+				height: 10px;
+				width: 10px;
+				background-color: $grey-dark;
+				float: left;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+			.circle-pager-active {
+				background-color: $orange;
+			}
+		}
+		.btn {
+			width: 110px;
+			line-height: 35px;
+			color: $text-white;
+			background-color: $orange;
+			margin-right: 10px;
+		}
+		.btn-inactive {
+			background-color: $grey-dark;
+		}
+		.create-page {
+			font-size: 18px;
+			line-height: 18px;
+			margin-top: 20px;
+			a {
+				font-size: 18px;
+				color: $orange;
+			}
+		}
+
+
+		/* Page - 2 */
+		.signup-personal-info {
+			.signup-label {
+				font-weight: bold;
+				font-size: 16px;
+				line-height: 13px;
+			}
+			input {
+				width: 195px;
+				margin-top: 10px;
+				padding-left: 15px;
+			}
+			select {
+				width: 210px;
+				padding-left: 10px;
+			}
+
+			.signup-dob {
+				margin-top: 10px;
+				.signup-label {
+					margin: 0 5px 0 0;
+					float: left;
+					line-height:35px;
+					font-size: 14px;
+				}
+				select {
+					width: 99px;
+					margin: 0 0 0 10px;
+				}
+			}
+			.signup-contant-info {
+
+				.signup-label {
+					margin: 15px 0 5px 0;
+				}
+				input {
+					width: 100%;
+					padding-left: 15px;
+					box-sizing: border-box;
+				}
+			}
+			.signup-pager {
+				margin: 20px 0;
+			}
+		}
+
+
+		/* Page - 3 */
+		.signup-upload-img {
+			.signup-label {
+				font-weight: bold;
+				font-size: 16px;
+				line-height: 13px;
+				margin-bottom: 10px;
+			}
+			.bt {
+				width: 130px;
+				color: #fff;
+				background-color: $grey-dark;
+				float: left;
+				margin-right: 10px;
+			}
+			span {
+				line-height: 35px;
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+

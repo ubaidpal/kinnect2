@@ -1,0 +1,64 @@
+<div class="post">
+
+    <form>
+
+    </form>
+
+
+    <div id="postUploadingFiles">
+        <div><img src="local/public/images/loading.gif">
+            <ul class="uploads-container">
+
+
+                <li class="">
+
+                    <img style="width:60px; height:70px"
+                         src="http://localhost/kinnect2/local/public/storage/photos/144889273930565c5943e148a6.39694882.jpg">
+
+
+                </li>
+                <li class="">
+
+                    <img style="width:60px; height:70px"
+                         src="http://localhost/kinnect2/local/public/storage/photos/144889274430565c59481175a4.63555444.jpg">
+
+
+                </li>
+                <li class="">
+
+                    <img style="width:60px; height:70px"
+                         src="http://localhost/kinnect2/local/public/storage/photos/144889274830565c594c32fb73.20120820.jpg">
+
+
+                </li>
+                <li class="upload-more">
+
+                    <div class="upload-more">+</div>
+
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <form action="" id="postForm" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="What would you like to post?" alt="" maxlength="" size="60" id="k2post"
+               name="text" autocomplete="on">
+
+        <input type="file" style="position: fixed; top: -30px;" name="video" id="postFiles"
+               accept="image/*,video/*,audio/*" multiple="">
+        <input type="submit" style="display: none" id="savePostBtn">
+        <!--<input type="file" style="position: fixed; top: -30px;" name="photos" id="postFiles" accept="image/*,video/*,audio/*" multiple />-->
+        <button type="submit" id="btn" style="width: 0px; height: 0px; display: none;">Upload Files!</button>
+    </form>
+
+    <div id="response">
+
+    </div>
+
+    <div class="shareDiv">
+        <a href="javascript:void(0);" title="Upload" id="status-file-upload" style="display: none;">Upload</a>
+        <a href="javascript:void(0);" title="Share">Share</a>
+    </div>
+
+</div>

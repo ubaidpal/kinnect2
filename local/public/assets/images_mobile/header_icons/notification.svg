@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="37.375px" height="48px" viewBox="259.756 0 37.375 48" enable-background="new 259.756 0 37.375 48" xml:space="preserve">
+<g id="notifications">
+	<path id="notification_1_" fill="#999999" d="M296.172,36.006l-3.054-2.095V16.99c0-7.063-5.193-12.943-12.035-14.156
+		c0.017-0.076,0.017-0.154,0.017-0.235c0-1.428-1.18-2.598-2.644-2.598c-1.458,0-2.637,1.162-2.637,2.598
+		c0,0.073,0,0.151,0.013,0.235c-6.837,1.215-12.038,7.094-12.038,14.156v16.921l-3.056,2.121c-0.545-0.007-0.982,0.832-0.982,1.366
+		v2.598c0,0.535,0.438,0.964,0.979,0.964h35.423c0.539,0,0.972-0.429,0.972-0.964v-2.995
+		C297.153,36.461,296.714,36.006,296.172,36.006z"/>
+	<path id="notification" fill="#999999" d="M278.448,47.999c2.063,0,3.739-2.269,3.739-5.069h-7.477
+		C274.712,45.73,276.382,47.999,278.448,47.999z"/>
+</g>
+</svg>

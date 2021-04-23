@@ -1,0 +1,113 @@
+			#croppic{
+				width: 400px;  /* MANDATORY */
+				height: 208px; /* MANDATORY */
+				position: relative;  /* MANDATORY */
+				
+				margin: 50px 70px 20px;
+				border: 3px  solid #FFF;
+				box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				border-radius: 2px;
+				background-image: url('../images/placeholder.png');
+				background-repeat: no-repeat;
+				background-position: center;
+				box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+			}
+			
+			/* DO NOT CHANGE FROM HERE ( unless u know what u are doing) */
+			.cropImgWrapper{
+				cursor: -webkit-grab;
+				cursor: grab;
+			}
+			.cropImgWrapper:active{
+				cursor: -webkit-grabbing;
+				cursor: grabbing;
+			}
+			
+			.cropImgUpload{
+				z-index:2;
+				position:absolute;
+				display:block;
+				top: -30px;
+				right: -2px;
+				font-family:sans-serif;
+				width:20px;
+				height:20px;
+				text-align:center;
+				line-height:20px;
+				color:#FFF;
+			}
+			
+			.cropControls{
+				bottom: 10px;
+				display: block;
+				left: 50%;
+				padding-bottom: 5px;
+				position: absolute;
+				transform: translateX(-50%);
+				z-index: 100;
+			}
+			
+			.cropControls i{
+				display:block;
+				float:left;
+				margin:0 5px 0 0;
+				cursor:pointer;
+				background-image:url(../images/svg/croppic_icons.svg);
+				background-repeat:no-repeat;
+				width:45px;
+				height:45px;
+				text-align:center;
+				line-height:20px;
+				color:#FFF;
+				font-size:13px;
+				font-weight: bold;
+				font-style: normal;
+				
+			}
+			
+			/*.cropControls i:hover{ background-color:rgba(0,0,0,0.7);  }*/
+			
+			.cropControls i.cropControlZoomMuchIn{ background-position:0px 0px;}
+			.cropControls i.cropControlZoomIn{ background-position:-57px 1px;}
+			.cropControls i.cropControlZoomOut{ background-position:-115px 1px; }
+			.cropControls i.cropControlZoomMuchOut{ background-position:-90px 0px; }
+			.cropControls i.cropControlRotateLeft{ background-position:-210px 0px; }
+			.cropControls i.cropControlRotateRight{ background-position:-240px 0px; }
+			.cropControls i.cropControlCrop{ background-position:2px 1px;}
+			.cropControls i.cropControlUpload{ background-position:-150px 0px;}
+			.cropControls i.cropControlReset{ background-position:-173px 1px;}
+			.cropControls i.cropControlRemoveCroppedImage{ background-position:-180px 0px;}
+			
+			.cropControls i:last-child{
+				margin-right:0;
+			}
+			
+			#croppicModal{
+				position:fixed;
+				width:100%;
+				height:100%;
+				top: 0;
+				left: 0;
+				display:block;
+				background:rgba(0,0,0,0.8);
+				z-index: 10000;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

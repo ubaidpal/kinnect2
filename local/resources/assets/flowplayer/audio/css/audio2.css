@@ -1,0 +1,55 @@
+body {
+}
+#wraper {
+    width: 780px;
+}
+#duration{
+	float:left;
+	margin-top:15px;
+
+}
+nav {
+    background-color: rgb(250, 250, 250);
+    float: right;
+    padding-bottom: 3px;
+    width: 640px;
+}
+#defaultBar {
+    background-color: #d4d4d4;
+    border-radius: 25px;
+    height: 10px;
+    left: 200px;
+    position: absolute;
+    top: 28px;
+    width: 520px;
+}
+#progressBar {
+    background-color: #ee4b08;
+    border-radius: 25px;
+    height: 10px;
+    position: absolute;
+    width: 0;
+}
+#playButton {
+    background-color: rgb(250, 250, 250);
+    background-image: url("../images/play.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: medium none;
+    height: 48px;
+    width: 48px;
+}
+#muteButton {
+    background-color: rgb(250, 250, 250);
+    background-image: url("../images/volume.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: medium none;
+    float: right;
+    height: 48px;
+    width: 48px;
+}
+#playButton:active, #muteButton:active {
+    position: relative;
+    top: 2px;
+}

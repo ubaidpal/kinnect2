@@ -1,0 +1,171 @@
+<!-- Post Div-->
+<% if(typeof write_post != 'undefined' && !write_post){ %>
+
+<% }else{ %>
+<div class="post" id="write-your-post">
+
+    <form >
+
+    </form>
+
+    <form action="" id="postForm" method="post" enctype="multipart/form-data">
+        <textarea type="text" class="disable-required" placeholder="What would you like to post?" alt="" maxlength="" size="60" id="k2post" name="text" autocomplete="on"></textarea>
+
+        <input type="file" style="position: fixed; top: -30px;" name="video" id="postFiles"  />
+        <input class="disable-required" type="submit" style="display: none" id="savePostBtn">
+        <!--<input type="file" style="position: fixed; top: -30px;" name="photos" id="postFiles" accept="image/*,video/*,audio/*" multiple />-->
+        <button type="submit" id="btn" style="width: 0px;height: 0px; display: none;">Upload Files!</button>
+    </form>
+
+    <div id="links-preview">
+
+    </div>
+
+    <div id="postUploadingFiles">
+
+    </div>
+    <progress value="0" max="100" style="width: 100%;display: none;" id="progress_bar"></progress>
+    <div id="status-loader" style="display: none;">
+    	<!--<img src="local/public/images/loading.gif">-->
+        <div class="loader bubblingG mt10">
+            <span id="bubblingG_1"></span>
+            <span id="bubblingG_2"></span>
+            <span id="bubblingG_3"></span>
+        </div>
+    </div>
+
+    <div class="shareDiv">
+        <a href="javascript:void(0);" title="Upload" id="status-file-upload">Upload</a>
+        <a href="javascript:void(0);" title="Share" id="share-btn">Share</a>
+    </div>
+    <div style="color: #008000;text-align: center;display: none;" id="file_uploaded_msg">File has been uploaded and will be ready when processed.</div>
+</div>
+<% } %>
+<div class="posts-container">
+
+</div>
+
+
+<div id="popover" style="display:none;" class="popover">
+    <input type="hidden" id="socialShareIdent">
+    <ul>
+        <li><a href="#" class="share-social-media fb" data-target="facebook"></a></li>
+        <li><a href="#" class="share-social-media tw" data-target="twitter"></a></li>
+        <li><a href="#" class="share-social-media gp" data-target="google-plus"></a></li>
+        <li><a href="#" class="share-social-media in" data-target="linkedin"></a></li>
+    </ul>
+</div> 
+
+<a href="#" id="socialShareTrigger"></a>
+
+<input type="hidden" id="postIDentifier">
+<input type="hidden" id="ObjectType">
+<input type="hidden" id="objectIdentifier">
+<input type="hidden" id="selectedIndex">
+
+<div class="modal-box" id="reShare_popup">
+    <a href="#" class="js-modal-close close">×</a>
+
+    <div class="modal-body">
+        <div class="edit-photo-poup" style="overflow: auto">
+            <h3>Share</h3>
+
+            <div class="wall-photos" style="overflow: auto">
+                <div class="">
+                    <div class="form-container">
+                        <div>
+                            <label for=""></label>
+                            <textarea name="text" placeholder="Write your text here" rows="8" cols="60" id="share_text"></textarea>
+                        </div>
+                        <div class="clrfix"></div>
+                        <div class="saveArea mt10">
+                            <button class="orngBtn fltL share-activity-btn" type="button">Share</button>
+                            <input class="orngBtn js-modal-close close" style="margin-left: 60px;" type="button"
+                                   value="Cancel"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-box" id="flag_popup">
+    <a href="#" class="js-modal-close close"></a>
+
+    <div class="modal-body">
+        <div class="edit-photo-poup" style="overflow: auto">
+            <h3>Report</h3>
+
+            <div class="wall-photos" style="overflow: auto">
+                <div class="">
+                    <div class="form-container">
+                        <div class="field-item mb10">
+                            <select name="category" id="category">
+                                <option value="spam">Spam</option>
+                                <option value="abuse">Abuse</option>
+                                <option value="inappropriate">Inappropriate Content</option>
+                                <option value="licensed">Licensed Material</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="field-item mb10">
+                            <input type="hidden" id="reSharePostidentifier">
+                            <textarea name="text" rows="10" cols="40" id="report_text"></textarea>
+                            <label id="flag_error" style="color: #ee4b08;display: none;">Please write what is wrong with this post</label>
+                        </div>
+                        <div class="clrfix"></div>
+                        <div class="report_save">
+                            <button class="orngBtn report-activity mr10" type="button">Submit</button>
+                            <input class="orngBtn js-modal-close close" type="button"
+                                   value="Cancel"/>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-box" id="likes_container" style="display: none;">
+    <a href="#" class="js-modal-close close">×</a>
+    <div class="modal-body" id="post_likes_users"></div>
+</div>
+
+<div class="modal-box" id="edit_post_container">
+    <a href="#" class="js-modal-close close">×</a>
+    <div class="modal-body">
+    	<div class="edit-post-box">
+        	<form method="post" enctype="multipart/form-data">
+            <input type="hidden" id="editPostIdentifier">
+            <div>
+                <textarea name="edit_post_text" id="post_edit_text" rows="5"></textarea>
+            </div>
+            <div id="edit_files_container"></div>
+            <div class="mt10">
+                <button type="button" class="edit-post-save">Save</button>
+                <button type="button" class="close-edit-modal">Cancel</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div id="more-stories"  style="position: fixed; display: none;
+     top: 60px;
+     left: 48%;
+     cursor: pointer;
+     border-radius: 10px;
+     height: 22px;
+     width: 140px;
+     border: 1px solid #BDBDBD;
+     opacity: .8;
+     text-align: center;
+     padding-top: 5px;
+     background: -moz-linear-gradient(top, rgba(170,170,170,0.65) 0%, rgba(0,0,0,0) 100%);
+     background: -webkit-linear-gradient(top, rgba(170,170,170,0.65) 0%,rgba(0,0,0,0) 100%);
+     background: linear-gradient(to bottom, rgba(170,170,170,0.65) 0%,rgba(0,0,0,0) 100%);
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6aaaaaa', endColorstr='#00000000',GradientType=0 );">New Stories</div>

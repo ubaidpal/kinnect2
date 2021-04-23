@@ -1,0 +1,16 @@
+<% if(isAuthenticatedUser){ %>
+<div class="write-comment">
+    <form class="my-comment" enctype="multipart/form-data" method="post">
+        <di class="attachment-preview-box" style="display: none;">
+            <img width="150" class="preview">
+            <a href="#" class="remove-comment-attachment">&times;</a>
+        </di>
+        <textarea placeholder="Write Comment" alt="" maxlength="" size="60" class="box-comment disable-required write-comment-box" name="comment_body" autocomplete="off"></textarea>
+        <a href="#" class="select-attachment">Select</a>
+
+        <input type="file" name="attachment" class="comment-attachment" style="display: none;">
+
+    </form>
+    <a class="orngBtn send-comment disable-required" title="Comment">Comment</a>
+</div>
+<% } %>
